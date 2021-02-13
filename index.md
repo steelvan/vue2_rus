@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/steelvan/vue2_3/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files1.9
+You can use the [editor on GitHub](https://github.com/steelvan/vue2_3/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files1.10
 
 [components](./guide2/components.md)
 
