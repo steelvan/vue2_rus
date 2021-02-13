@@ -1,39 +1,48 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/steelvan/vue2_3/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files1.11
+### Основы
+* [Что такое Vue.js, Декларативная отрисовка, Условия и циклы, Работа с пользовательским вводом, Разбиение приложения на компоненты](./guide/index.md)  
+* [Установка, Подключение через script, Объяснение различных сборок, Режим разработки против режим продуктива](./guide/installation.md)  
+* [Создание экземпляра Vue, Данные и методы, Перехватчики жизненного цикла экземпляра, Диаграмма жизненного цикла](./guide/instance.md)  
+* [Синтаксис шаблонов, Директивы, Аргументы, Динамические аргументы, Изменители, Сокращения директив](./guide/syntax.md)  
+* [Вычисляемые свойства и слежение](./guide/computed.md)  
+* [Работа с классами и стилями](./guide/class-and-style.md)  )
+* [Условная отрисовка v-if, v-else, v-show, key, template](./guide/conditional.md)  
+* [Отрисовка списков, директива v-for и template и v-if, Компоненты и v-for,  Сохранение состояния, Отслеживание изменений в массивах, Отображение отфильтрованных/отсортированных результатов](./guide/list.md)  
+* [Обработка событий, подписка на события, методы и встрочные-обработчики, изменители событий, Изменители клавиш](./guide/events.md)  
+* [Работа с формами, директива v-model, Изменители, ](./guide/forms.md)  
+* [Подробно о реактивности, Как отслеживаются изменения объектов и массивов, Объявление реактивных свойств, Асинхронная очередь обновлений](./guide/reactivity.md)  
 
-[components](./guide2/components.md)
+### Компоненты
+* [Основы компонентов](./guide/components.md)  
+* [Регистрация компонентов](./guide/components-registration.md)  
+* [Входные параметры компонент](./guide/components-props.md)  
+* [Самодельные события компонент](./guide/components-custom-events.md)  
+* [Слоты компонентов](./guide/components-slots.md)  
+* [Динамические и асинхронные компоненты](./guide/components-dynamic-async.md)  
+* [Обработка крайних случаев для компонент](./guide/components-edge-cases.md)  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Переходы и анимации
+* [Анимование списков и появления/исчезновения, Анимование одиночного элемента/компонента, Совместное использование переходов и анимаций, JavaScript-перехватчики, Переходы между компонентами, Переходы в списках, Динамические переходы](./guide/transitions.md)  
+* [Анимование переходов между состояниями, Анимация состояния при помощи наблюдателей, Динамические переходы между состояниями, Представление переходов как компонентов](./guide/transitioning-state.md)  
 
-### Markdown
+### Переиспользование и композиция
+* [Примеси, Слияние настроек](./guide/mixins.md)  
+* [Самодельные директивы, перехватчики, аргументы перехватчиков, динамические аргументы самодельной директивы](./guide/custom-directive.md)  
+* [Функции-создатели и JSX, Узлы и деревья и виртуальный DOM, Аргументы createElement, директивы v-if и v-for и v-model, События и изменители клавиш, Слоты, Функциональные компоненты, Передача атрибутов и событий дочерним элементам/компонентам, slots() или children](./guide/render-function.md)  
+* [Добавки](./guide/plugins.md)  
+* [Фильтры](./guide/filters.md)  
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Инструменты
+* [Однофайловые компоненты](./guide/single-file-components.md)  
+* [Тестирование](./guide/testing.md)  
+* [Публикация в продуктиве, прекомпиляция шаблонов, извлечение CSS из компонентов, отслеживание ошибок во время выполнения](./guide/deployment.md)  
 
-```markdown
-Syntax highlighted code block
+### Масштабирование
+* [Маршрутизация](./guide/routing.md)  
+* [Управление состоянием приложения, Vuex, Простое вместилище состояния с нуля](./guide/state-management.md)  
+* [Отрисовка на стороне сервера, Nuxt.js](./guide/ssr.md)  
+* [Безопасность](./guide/security.md)  
 
-# Header 1
-## Header 2
-### Header 3
+### Стилеводство кода
+* [Рекомендации по стилю кода](./guide/style-guide.md)  
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/steelvan/vue2_3/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
