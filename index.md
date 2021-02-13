@@ -1,116 +1,118 @@
 
 # Главная vue.js
 
-### Основы
-* **[Что такое Vue.js](./uchebnik/index.md)**  
-	* [Декларативная отрисовка](./uchebnik/index.md#декларативная-отрисовка)  
-	* [Условия и циклы](./uchebnik/index.md#условия-и-циклы)  
-	* [Работа с пользовательским вводом](./uchebnik/index.md#работа-с-пользовательским-вводом)  
-	* [Разбиение приложения на компоненты](./uchebnik/index.md#разбиение-приложения-на-компоненты)  
-	* [Отношение к пользовательским элементам Web Components](./uchebnik/index.md#отношение-к-пользовательским-элементам-web-components)  
+### Что такое Vue.js
 
-* **[Установка](./uchebnik/installation.md)**  
-	* [Инструменты разработчика и Vue](./uchebnik/installation.md#инструменты-разработчика-и-vue)
-	* [Подключение через script](./uchebnik/installation.md#подключение-через-script)
-	* [Инструменты командной строки (CLI)](./uchebnik/installation.md#инструменты-командной-строки-cli)
-	* [Объяснение различных сборок](./uchebnik/installation.md#объяснение-различных-сборок)
-	* [Среда исполнения + Компилятор vs. Среда исполнения](./uchebnik/installation.md#среда-исполнения--компилятор-vs-среда-исполнения)
-	* [Режим разработки против режим продуктива](./uchebnik/installation.md#режим-разработки-против-режим-продуктива)
-	* [Сборка dev-версии](./uchebnik/installation.md#сборка-dev-версии)
+* [Что такое Vue.js](./uchebnik/index.md)  
+* [Декларативная отрисовка](./uchebnik/index.md#декларативная-отрисовка)  
+* [Условия и циклы](./uchebnik/index.md#условия-и-циклы)  
+* [Работа с пользовательским вводом](./uchebnik/index.md#работа-с-пользовательским-вводом)  
+* [Разбиение приложения на компоненты](./uchebnik/index.md#разбиение-приложения-на-компоненты)  
+* [Отношение к пользовательским элементам Web Components](./uchebnik/index.md#отношение-к-пользовательским-элементам-web-components)  
 
-* **[Создание экземпляра Vue](./uchebnik/instance.md)**  
-	* [Данные и методы](./uchebnik/instance.md#данные-и-методы)
-	* [Перехватчики жизненного цикла экземпляра](./uchebnik/instance.md#перехватчики-жизненного-цикла-экземпляра)
-	* [Диаграмма жизненного цикла](./uchebnik/instance.md#диаграмма-жизненного-цикла)
+### Установка
+* [Установка](./uchebnik/installation.md)  
+* [Инструменты разработчика и Vue](./uchebnik/installation.md#инструменты-разработчика-и-vue)
+* [Подключение через script](./uchebnik/installation.md#подключение-через-script)
+* [Инструменты командной строки (CLI)](./uchebnik/installation.md#инструменты-командной-строки-cli)
+* [Объяснение различных сборок](./uchebnik/installation.md#объяснение-различных-сборок)
+* [Среда исполнения + Компилятор vs. Среда исполнения](./uchebnik/installation.md#среда-исполнения--компилятор-vs-среда-исполнения)
+* [Режим разработки против режим продуктива](./uchebnik/installation.md#режим-разработки-против-режим-продуктива)
+* [Сборка dev-версии](./uchebnik/installation.md#сборка-dev-версии)
 
-* **[Синтаксис шаблонов](./uchebnik/syntax.md)**  
-	* [Интерполяции](./uchebnik/syntax.md#интерполяции)
-	* [Сырой HTML](./uchebnik/syntax.md#сырой-html)
-	* [Атрибуты](./uchebnik/syntax.md#атрибуты)
-	* [Использование выражений JavaScript](./uchebnik/syntax.md#использование-выражений-javascript)
-	* [Директивы](./uchebnik/syntax.md#директивы)
-	* [Аргументы](./uchebnik/syntax.md#аргументы)
-	* [Динамические аргументы](./uchebnik/syntax.md#динамические-аргументы)
-	* [Изменители](./uchebnik/syntax.md#изменители)
-	* [Сокращение v-bind](./uchebnik/syntax.md#сокращение-v-bind)
-	* [Сокращение v-on](./uchebnik/syntax.md#сокращение-v-on)
+### Создание экземпляра Vue
+* [Создание экземпляра Vue](./uchebnik/instance.md)  
+* [Данные и методы](./uchebnik/instance.md#данные-и-методы)
+* [Перехватчики жизненного цикла экземпляра](./uchebnik/instance.md#перехватчики-жизненного-цикла-экземпляра)
+* [Диаграмма жизненного цикла](./uchebnik/instance.md#диаграмма-жизненного-цикла)
 
-* **[Вычисляемые свойства и слежение](./uchebnik/computed.md)**  
-	* [Вычисляемые свойства](./uchebnik/computed.md#вычисляемые-свойства)
-	* [Кэширование вычисляемых свойств](./uchebnik/computed.md#кэширование-вычисляемых-свойств)
-	* [Вычисляемые свойства и слежение](./uchebnik/computed.md#вычисляемые-свойства-и-слежение-1)
-	* [Установщики вычисляемых свойств](./uchebnik/computed.md#установщики-вычисляемых-свойств)
-	* [Методы-наблюдатели](./uchebnik/computed.md#методы-наблюдатели)
+### Синтаксис шаблонов
+* [Интерполяции](./uchebnik/syntax.md#интерполяции)
+* [Сырой HTML](./uchebnik/syntax.md#сырой-html)
+* [Атрибуты](./uchebnik/syntax.md#атрибуты)
+* [Использование выражений JavaScript](./uchebnik/syntax.md#использование-выражений-javascript)
+* [Директивы](./uchebnik/syntax.md#директивы)
+* [Аргументы](./uchebnik/syntax.md#аргументы)
+* [Динамические аргументы](./uchebnik/syntax.md#динамические-аргументы)
+* [Изменители](./uchebnik/syntax.md#изменители)
+* [Сокращение v-bind](./uchebnik/syntax.md#сокращение-v-bind)
+* [Сокращение v-on](./uchebnik/syntax.md#сокращение-v-on)
 
-* **[Работа с классами и стилями](./uchebnik/class-and-style.md)**
-	* **Связывание CSS-классов**
-		* [Использование объектов](./uchebnik/class-and-style.md#использование-объектов)
-		* [Использование массивов](./uchebnik/class-and-style.md#использование-массивов)
-		* [Использование с компонентами](./uchebnik/class-and-style.md#использование-с-компонентами)
-	* **Связывание встрочных-стилей**
-		* [Использование объектов](./uchebnik/class-and-style.md#использование-объектов-1)
-		* [Использование массивов](./uchebnik/class-and-style.md#использование-массивов-1)
-		* [Автоматические приставки](./uchebnik/class-and-style.md#автоматические-приставки)
-		* [Множественные значения](./uchebnik/class-and-style.md#множественные-значения)
+### Вычисляемые свойства и слежение
+* [Вычисляемые свойства](./uchebnik/computed.md#вычисляемые-свойства)
+* [Кэширование вычисляемых свойств](./uchebnik/computed.md#кэширование-вычисляемых-свойств)
+* [Вычисляемые свойства и слежение](./uchebnik/computed.md#вычисляемые-свойства-и-слежение-1)
+* [Установщики вычисляемых свойств](./uchebnik/computed.md#установщики-вычисляемых-свойств)
+* [Методы-наблюдатели](./uchebnik/computed.md#методы-наблюдатели)
 
-* **[Условная отрисовка](./uchebnik/conditional.md)**  
-	* [v-if](./uchebnik/conditional.md#v-if)
-	* [Условные группы с использованием v-if и template](./uchebnik/conditional.md#условные-группы-с-использованием-v-if-и-template)
-	* [v-else](./uchebnik/conditional.md#v-else)
-	* [v-else-if](./uchebnik/conditional.md#v-else-if)
-	* [Управление повторным использованием элементов при помощи key](./uchebnik/conditional.md#управление-повторным-использованием-элементов-при-помощи-key)
-	* [v-show](./uchebnik/conditional.md#v-show)
-	* [v-if в сравнении с v-show](./uchebnik/conditional.md#v-if-в-сравнении-с-v-show)
-	* [v-if вместе с v-for](./uchebnik/conditional.md#v-if-вместе-с-v-for)
+### Работа с классами и стилями
+* Связывание CSS-классов
+	* [Использование объектов](./uchebnik/class-and-style.md#использование-объектов)
+	* [Использование массивов](./uchebnik/class-and-style.md#использование-массивов)
+	* [Использование с компонентами](./uchebnik/class-and-style.md#использование-с-компонентами)
+* Связывание встрочных-стилей
+	* [Использование объектов](./uchebnik/class-and-style.md#использование-объектов-1)
+	* [Использование массивов](./uchebnik/class-and-style.md#использование-массивов-1)
+	* [Автоматические приставки](./uchebnik/class-and-style.md#автоматические-приставки)
+	* [Множественные значения](./uchebnik/class-and-style.md#множественные-значения)
 
-* **[Отрисовка списков](./uchebnik/list.md)**  
-	* [Отображение массива элементов с помощью v-for](./uchebnik/list.md#отображение-массива-элементов-с-помощью-v-for)
-	* [v-for для объекта](./uchebnik/list.md#v-for-для-объекта)
-	* [Сохранение состояния](./uchebnik/list.md#сохранение-состояния)
-	* [Отслеживание изменений в массивах](./uchebnik/list.md#отслеживание-изменений-в-массивах)
-	* [Отображение отфильтрованных/отсортированных результатов](./uchebnik/list.md#отображение-отфильтрованныхотсортированных-результатов)
-	* [v-for и диапазоны](./uchebnik/list.md#v-for-и-диапазоны)
-	* [v-for и тег template](./uchebnik/list.md#v-for-и-тег-template)
-	* [v-for и v-if](./uchebnik/list.md#v-for-и-v-if)
-	* [Компоненты и v-for](./uchebnik/list.md#компоненты-и-v-for)
+### Условная отрисовка
+* [v-if](./uchebnik/conditional.md#v-if)
+* [Условные группы с использованием v-if и template](./uchebnik/conditional.md#условные-группы-с-использованием-v-if-и-template)
+* [v-else](./uchebnik/conditional.md#v-else)
+* [v-else-if](./uchebnik/conditional.md#v-else-if)
+* [Управление повторным использованием элементов при помощи key](./uchebnik/conditional.md#управление-повторным-использованием-элементов-при-помощи-key)
+* [v-show](./uchebnik/conditional.md#v-show)
+* [v-if в сравнении с v-show](./uchebnik/conditional.md#v-if-в-сравнении-с-v-show)
+* [v-if вместе с v-for](./uchebnik/conditional.md#v-if-вместе-с-v-for)
 
-* **[Обработка событий, подписка на события, методы и встрочные-обработчики, изменители событий, Изменители клавиш](./uchebnik/events.md)**  
-	* [Подписка на события](./uchebnik/events.md#подписка-на-события)
-	* [Обработчики событий](./uchebnik/events.md#обработчики-событий)
-	* [Методы и встрочные-обработчики](./uchebnik/events.md#методы-и-встрочные-обработчики)
-	* [Изменители событий](./uchebnik/events.md#изменители-событий)
-	* [Изменители клавиш](./uchebnik/events.md#изменители-клавиш)
-	* [Коды клавиш](./uchebnik/events.md#коды-клавиш)
-	* [Системные изменители клавиш](./uchebnik/events.md#системные-изменители-клавиш)
-	* [Изменитель .exact](./uchebnik/events.md#изменитель-exact)
-	* [Изменители клавиш мыши](./uchebnik/events.md#изменители-клавиш-мыши)
-	* [Почему подписчики указываются в HTML?](./uchebnik/events.md#почему-подписчики-указываются-в-html)
+### Отрисовка списков
+* [Отображение массива элементов с помощью v-for](./uchebnik/list.md#отображение-массива-элементов-с-помощью-v-for)
+* [v-for для объекта](./uchebnik/list.md#v-for-для-объекта)
+* [Сохранение состояния](./uchebnik/list.md#сохранение-состояния)
+* [Отслеживание изменений в массивах](./uchebnik/list.md#отслеживание-изменений-в-массивах)
+* [Отображение отфильтрованных/отсортированных результатов](./uchebnik/list.md#отображение-отфильтрованныхотсортированных-результатов)
+* [v-for и диапазоны](./uchebnik/list.md#v-for-и-диапазоны)
+* [v-for и тег template](./uchebnik/list.md#v-for-и-тег-template)
+* [v-for и v-if](./uchebnik/list.md#v-for-и-v-if)
+* [Компоненты и v-for](./uchebnik/list.md#компоненты-и-v-for)
 
-* **[Работа с формами](./uchebnik/forms.md)**  
-	* [Типичное использование v-model](./uchebnik/forms.md#типичное-использование)
-		* [Вводилка](./uchebnik/forms.md#вводилка)
-		* [Текстобласть](./uchebnik/forms.md#текстобласть)
-		* [Флажки](./uchebnik/forms.md#флажки)
-		* [Радиокнопки](./uchebnik/forms.md#радиокнопки)
-		* [Выбиралки](./uchebnik/forms.md#выбиралки)
-	* [Привязка значений v-model](./uchebnik/forms.md#привязка-значений)
-		* [Флажок](./uchebnik/forms.md#флажок)
-		* [Радиокнопки](./uchebnik/forms.md#радиокнопки-1)
-		* [Выбиралки](./uchebnik/forms.md#выбиралки-1)
-	* [Изменители](./uchebnik/forms.md#изменители)
-		* [.lazy](./uchebnik/forms.md#lazy)
-		* [.number](./uchebnik/forms.md#number)
-		* [.trim](./uchebnik/forms.md#trim)
-	* [Использование v-model с компонентами](./uchebnik/forms.md#использование-v-model-с-компонентами)
+### Обработка событий
+* [Подписка на события](./uchebnik/events.md#подписка-на-события)
+* [Обработчики событий](./uchebnik/events.md#обработчики-событий)
+* [Методы и встрочные-обработчики](./uchebnik/events.md#методы-и-встрочные-обработчики)
+* [Изменители событий](./uchebnik/events.md#изменители-событий)
+* [Изменители клавиш](./uchebnik/events.md#изменители-клавиш)
+* [Коды клавиш](./uchebnik/events.md#коды-клавиш)
+* [Системные изменители клавиш](./uchebnik/events.md#системные-изменители-клавиш)
+* [Изменитель .exact](./uchebnik/events.md#изменитель-exact)
+* [Изменители клавиш мыши](./uchebnik/events.md#изменители-клавиш-мыши)
+* [Почему подписчики указываются в HTML?](./uchebnik/events.md#почему-подписчики-указываются-в-html)
 
+### Работа с формами
+* [Типичное использование v-model](./uchebnik/forms.md#типичное-использование)
+	* [Вводилка](./uchebnik/forms.md#вводилка)
+	* [Текстобласть](./uchebnik/forms.md#текстобласть)
+	* [Флажки](./uchebnik/forms.md#флажки)
+	* [Радиокнопки](./uchebnik/forms.md#радиокнопки)
+	* [Выбиралки](./uchebnik/forms.md#выбиралки)
+* [Привязка значений v-model](./uchebnik/forms.md#привязка-значений)
+	* [Флажок](./uchebnik/forms.md#флажок)
+	* [Радиокнопки](./uchebnik/forms.md#радиокнопки-1)
+	* [Выбиралки](./uchebnik/forms.md#выбиралки-1)
+* [Изменители](./uchebnik/forms.md#изменители)
+	* [.lazy](./uchebnik/forms.md#lazy)
+	* [.number](./uchebnik/forms.md#number)
+	* [.trim](./uchebnik/forms.md#trim)
+* [Использование v-model с компонентами](./uchebnik/forms.md#использование-v-model-с-компонентами)
 
-* **[Подробно о реактивности](./uchebnik/reactivity.md)**  
-	* [Как отслеживаются изменения](./uchebnik/reactivity.md#как-отслеживаются-изменения)
-	* Особенности отслеживания изменений
-		* [	Для объектов](./uchebnik/reactivity.md#для-объектов)
-		* [Для массивов](./uchebnik/reactivity.md#для-массивов)
-	* [Объявление реактивных свойств](./uchebnik/reactivity.md#объявление-реактивных-свойств)
-	* [Асинхронная очередь обновлений](./uchebnik/reactivity.md#асинхронная-очередь-обновлений)
+### Подробно о реактивности
+* [Как отслеживаются изменения](./uchebnik/reactivity.md#как-отслеживаются-изменения)
+* Особенности отслеживания изменений
+	* [	Для объектов](./uchebnik/reactivity.md#для-объектов)
+	* [Для массивов](./uchebnik/reactivity.md#для-массивов)
+* [Объявление реактивных свойств](./uchebnik/reactivity.md#объявление-реактивных-свойств)
+* [Асинхронная очередь обновлений](./uchebnik/reactivity.md#асинхронная-очередь-обновлений)
 
 
 
