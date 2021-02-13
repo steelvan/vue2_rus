@@ -17,7 +17,7 @@
 
 Вот простой пример файла, который мы назовём `Hello.vue`:
 
-<a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-single-file-components" target="_blank" rel="noopener noreferrer"><img src="/kartinki/vue-component.png" alt="Пример однофайловых компонентов" style="display: block; margin: 30px auto;"></a>
+<a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-single-file-components" target="_blank" rel="noopener noreferrer"><img src="../kartinki/vue-component.png" alt="Пример однофайловых компонентов" style="display: block; margin: 30px auto;"></a>
 
 Мы получили:
 
@@ -27,7 +27,7 @@
 
 Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.
 
-<a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank" rel="noopener noreferrer"><img src="/kartinki/vue-component-with-preprocessors.png" alt="Пример однофайлового компонента с пре-процессорами" style="display: block; margin: 30px auto;"></a>
+<a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank" rel="noopener noreferrer"><img src="../kartinki/vue-component-with-preprocessors.png" alt="Пример однофайлового компонента с пре-процессорами" style="display: block; margin: 30px auto;"></a>
 
 Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие до- или послеобработчики по вкусу. При использовании Webpack вместе с `vue-loader`, вы также получаете прекрасную поддержку CSS-модулей.
 
