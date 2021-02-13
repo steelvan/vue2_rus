@@ -1166,9 +1166,7 @@ props: {
 ```html
 {{
   fullName.split(' ').map(
-      function (word) {
-        return word[0].toUpperCase()
-      } )
+      function (word) {...} )
 }}
 ```
 
