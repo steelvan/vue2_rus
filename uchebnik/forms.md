@@ -17,33 +17,41 @@
 
 ### Вводилка
 
+{% raw %}
 ```html
 <input v-model="message" placeholder="отредактируй меня">
 <p>Введённое сообщение: {{ message }}</p>
 ```
+{% endraw %}
 
 ### Текстобласть
 
+{% raw %}
 ```html
 <span>Введённое многострочное сообщение:</span>
 <p style="white-space: pre-line;">{{ message }}</p>
 <br>
 <textarea v-model="message" placeholder="введите несколько строчек"></textarea>
 ```
+{% endraw %}
 
+{% raw %}
 Привязка внутри textarea (<code>&lt;textarea&gt;{{text}}&lt;/textarea&gt;</code>) не будет работать. Используйте вместо неё директиву <code>v-model</code>
-
+{% endraw %}
 
 ### Флажки
 
 Один флажок, привязанный к булевому значению:
 
+{% raw %}
 ```html
 <input type="checkbox" id="checkbox" v-model="checked">
 <label for="checkbox">{{ checked }}</label>
 ```
+{% endraw %}
 Список флажков, привязанных к одному массиву:
 
+{% raw %}
 ```html
 <input type="checkbox" id="ivan" value="Иван" v-model="checkedNames">
 <label for="ivan">Иван</label>
@@ -54,6 +62,7 @@
 <br>
 <span>Отмеченные имена: {{ checkedNames }}</span>
 ```
+{% endraw %}
 
 ```js
 new Vue({
@@ -66,6 +75,7 @@ new Vue({
 
 ### Радиокнопки
 
+{% raw %}
 ```html
 <input type="radio" id="one" value="Один" v-model="picked">
 <label for="one">Один</label>
@@ -75,10 +85,12 @@ new Vue({
 <br>
 <span>Выбрано: {{ picked }}</span>
 ```
+{% endraw %}
 ### Выбиралки
 
 Выбор одного варианта из списка:
 
+{% raw %}
 ```html
 <select v-model="selected">
   <option disabled value="">Выберите один из вариантов</option>
@@ -96,10 +108,12 @@ new Vue({
   }
 })
 ```
+{% endraw %}
 Если начальное значение выражения `v-model` не соответствует ни одному из вариантов списка, элемент `<select>` будет отображаться в «невыбранном» состоянии. В iOS это приведёт к тому, что пользователь не сможет выбрать первый элемент, потому что iOS не сгенерирует событие `change` в этом случае. Поэтому рекомендуется предоставлять отключённый `disabled`-вариант выбора с пустым значением value, как показано в примере выше.
 
 Выбор нескольких вариантов из списка (с привязкой к массиву):
 
+{% raw %}
 ```html
 <select v-model="selected" multiple>
   <option>А</option>
@@ -109,8 +123,10 @@ new Vue({
 <br>
 <span>Выбрано: {{ selected }}</span>
 ```
+{% endraw %}
 Динамическое отображение списка выбора с помощью `v-for`:
 
+{% raw %}
 ```html
 <select v-model="selected">
   <option v-for="option in options" v-bind:value="option.value">
@@ -132,6 +148,7 @@ new Vue({
   }
 })
 ```
+{% endraw %}
 ## Привязка значений
 
 Для радиокнопок и выбиралок в качестве `v-model` обычно используются статические строки, а для флажков — булевые значения:

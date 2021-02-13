@@ -9,6 +9,7 @@
 
 Имена HTML-атрибутов являются регистро-независимыми, поэтому обозреватели понимают любые прописные символы как строчные. Это означает, что при использовании шаблонов в DOM входные параметры в camelCase-стиле должны использовать свои эквиваленты в стиле kebab-case (разделённые дефисами):
 
+{% raw %}
 ```js
 Vue.component('blog-post', {
   // camelCase в JavaScript
@@ -16,6 +17,7 @@ Vue.component('blog-post', {
   template: '<h3>{{ postTitle }}</h3>'
 })
 ```
+{% endraw %}
 
 ```html
 <!-- kebab-case в HTML -->
@@ -318,6 +320,7 @@ Vue.component('my-component', {
 
 С помощью `inheritAttrs: false` и `$attrs` вы можете вручную определять к какому элементу должны применяться атрибуты, что часто требуется для [базовых компонентов](../style-guide/#Именование-базовых-компонентов-настоятельно-рекомендуется):
 
+{% raw %}
 ```js
 Vue.component('base-input', {
   inheritAttrs: false,
@@ -334,6 +337,7 @@ Vue.component('base-input', {
   `
 })
 ```
+{% endraw %}
 
 Обратите внимание, что опция `inheritAttrs: false` **не влияет** на привязки `style` и `class`.
 

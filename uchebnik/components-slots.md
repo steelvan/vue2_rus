@@ -56,14 +56,17 @@ Vue реализует API распределения контента, вдох
 
 Если необходимо использовать данные внутри слота, например:
 
+{% raw %}
 ```html
 <navigation-link url="/profile">
   Вы вошли как {{ user.name }}
 </navigation-link>
 ```
+{% endraw %}
 
 То этот слот имеет доступ к тем же свойствам экземпляра (т.е. к той же «области видимости»), что и остальная часть шаблона. Слот **не имеет доступа** к области видимости `<navigation-link>`. Поэтому попытка получить `url` не сработает:
 
+{% raw %}
 ```html
 <navigation-link url="/profile">
   Щелкните для перехода сюда: {{ url }}
@@ -74,6 +77,7 @@ Vue реализует API распределения контента, вдох
   -->
 </navigation-link>
 ```
+{% endraw %}
 
 Как правило, достаточно запомнить что:
 
@@ -228,24 +232,29 @@ Vue реализует API распределения контента, вдох
 
 Иногда для содержимого слота полезно иметь возможность использовать данные, доступные только в дочернем компоненте. Например, представьте компонент `<current-user>` со следующим шаблоном:
 
+{% raw %}
 ```html
 <span>
   <slot>{{ user.lastName }}</slot>
 </span>
 ```
+{% endraw %}
 
 Может потребоваться заменить это содержимое по умолчанию, например, чтобы отобразить имя пользователя, а не фамилию:
 
+{% raw %}
 ```html
 <current-user>
   {{ user.firstName }}
 </current-user>
 ```
+{% endraw %}
 
 Однако это не сработает, потому что только компонент `<current-user>` имеет доступ к `user`, а новое содержимое слота отрисовывается в родительском.
 
 Чтобы сделать `user` доступным для содержимого слота в родительском компоненте, необходимо добавить привязку `user` в качестве атрибута на элементе `<slot>`:
 
+{% raw %}
 ```html
 <span>
   <slot v-bind:user="user">
@@ -253,9 +262,11 @@ Vue реализует API распределения контента, вдох
   </slot>
 </span>
 ```
+{% endraw %}
 
 Атрибуты, привязанные к элементу `<slot>`, называются **входными параметрами слота**. Теперь, в родительской области видимости, можно использовать `v-slot` со значением, чтобы указать имя для предоставленных слоту входных параметров:
 
+{% raw %}
 ```html
 <current-user>
   <template v-slot:default="slotProps">
@@ -263,6 +274,7 @@ Vue реализует API распределения контента, вдох
   </template>
 </current-user>
 ```
+{% endraw %}
 
 В этом примере мы выбрали имя объекта `slotProps`, содержащего все входные параметры слота, но можно использовать любое другое, которое нравится.
 
@@ -270,22 +282,27 @@ Vue реализует API распределения контента, вдох
 
 В случаях, когда _только слоту по умолчанию_ предоставляется содержимое, тег компонента можно использовать в качестве шаблона слота. Это позволяет использовать `v-slot` непосредственно на компоненте:
 
+{% raw %}
 ```html
 <current-user v-slot:default="slotProps">
   {{ slotProps.user.firstName }}
 </current-user>
 ```
+{% endraw %}
 
 Эту запись можно сократить ещё больше. Предполагается, что неуказанное явно содержимое относится к слоту по умолчанию, так и `v-slot` без аргумента означает слот по умолчанию:
 
+{% raw %}
 ```html
 <current-user v-slot="slotProps">
   {{ slotProps.user.firstName }}
 </current-user>
 ```
+{% endraw %}
 
 Обратите внимание, что такой сокращённый синтаксис для слота по умолчанию **нельзя смешивать** с именованными слотами, потому что это приведёт к неоднозначности области видимости:
 
+{% raw %}
 ```html
 <!-- НЕПРАВИЛЬНО, будет выкидывать предупреждение -->
 <current-user v-slot="slotProps">
@@ -295,9 +312,11 @@ Vue реализует API распределения контента, вдох
   </template>
 </current-user>
 ```
+{% endraw %}
 
 При наличии нескольких слотов лучше используйте полный синтаксис на основе `<template>` для _всех_ слотов:
 
+{% raw %}
 ```html
 <current-user>
   <template v-slot:default="slotProps">
@@ -309,6 +328,7 @@ Vue реализует API распределения контента, вдох
   </template>
 </current-user>
 ```
+{% endraw %}
 
 ### Деструктурирование входных параметров слота
 
@@ -322,27 +342,33 @@ function (slotProps) {
 
 Это значит, что значение `v-slot` может принимать любое допустимое выражение JavaScript, которое может появиться в позиции аргумента определения функции. Поэтому в поддерживаемых окружениях ([однофайловых компонентах](single-file-components.md) или [современных обозревателях](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)), можно также использовать [деструктурирование ES2015](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80_%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2) чтобы извлекать определённые входные параметры слотов, например вот так:
 
+{% raw %}
 ```html
 <current-user v-slot="{ user }">
   {{ user.firstName }}
 </current-user>
 ```
+{% endraw %}
 
 Такой подход сделает шаблон намного чище, особенно когда слот предоставляет множество входных параметров. Это также открывает другие возможности, такие как переименование входных параметров, например `user` в `person`:
 
+{% raw %}
 ```html
 <current-user v-slot="{ user: person }">
   {{ person.firstName }}
 </current-user>
 ```
+{% endraw %}
 
 Можно даже определять значения по умолчанию, которые будут использоваться в случае, если входной параметр слота не определён:
 
+{% raw %}
 ```html
 <current-user v-slot="{ user = { firstName: 'Гость' } }">
   {{ user.firstName }}
 </current-user>
 ```
+{% endraw %}
 
 ## Динамическое имя слота
 
@@ -381,20 +407,24 @@ function (slotProps) {
 
 Однако, как и в случае с другими директивами, сокращение доступно только при наличии аргумента. Это означает, что следующий синтаксис недопустим:
 
+{% raw %}
 ```html
 <!-- Это выкинет предупреждение -->
 <current-user #="{ user }">
   {{ user.firstName }}
 </current-user>
 ```
+{% endraw %}
 
 Необходимо всегда указывать имя слота, если хотите использовать сокращение:
 
+{% raw %}
 ```html
 <current-user #default="{ user }">
   {{ user.firstName }}
 </current-user>
 ```
+{% endraw %}
 
 ## Другие примеры
 
@@ -402,6 +432,7 @@ function (slotProps) {
 
 Например, реализуем компонент `<todo-list>`, который содержит шаблон и логику фильтрации для списка задач:
 
+{% raw %}
 ```html
 <ul>
   <li
@@ -412,9 +443,11 @@ function (slotProps) {
   </li>
 </ul>
 ```
+{% endraw %}
 
 Вместо жёсткого кодирования содержимого каждой задачи списка, мы можем позволить родительскому компоненту взять на себя управление отображением с помощью слота, а затем привязать `todo` в качестве входного параметра слота:
 
+{% raw %}
 ```html
 <ul>
   <li
@@ -432,9 +465,11 @@ function (slotProps) {
   </li>
 </ul>
 ```
+{% endraw %}
 
 Теперь, при использовании `<todo-list>`, можно опционально переопределить `<template>` для элементов списка, но сохранив доступ к данным из дочернего компонента:
 
+{% raw %}
 ```html
 <todo-list v-bind:todos="todos">
   <template v-slot:todo="{ todo }">
@@ -443,6 +478,7 @@ function (slotProps) {
   </template>
 </todo-list>
 ```
+{% endraw %}
 
 Однако, это едва ли не вершина айсберга возможностей на которые способны слоты с ограниченной областью видимости. Несколько реальных примеров использования слотов с ограниченной областью видимости можно посмотреть в библиотеках [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller), [Vue Promised](https://github.com/posva/vue-promised), и [Portal Vue](https://github.com/LinusBorg/portal-vue).
 
@@ -507,6 +543,7 @@ function (slotProps) {
 
 Для получения входных параметров, переданных в слот, родительский компонент может использовать `<template>` с атрибутом `slot-scope` (в качестве примера используется `<slot-example>`, описанный [выше](#Слоты-с-ограниченной-областью-видимости)):
 
+{% raw %}
 ```html
 <slot-example>
   <template slot="default" slot-scope="slotProps">
@@ -514,11 +551,13 @@ function (slotProps) {
   </template>
 </slot-example>
 ```
+{% endraw %}
 
 Здесь `slot-scope` объявляет объект с полученными входными параметрами как переменную `slotProps`, и делает его доступным внутри области видимости `<template>`. Можно назвать `slotProps` как угодно, придерживаясь именования аргументов для функций в JavaScript.
 
 В примере `slot="default"` можно опустить, так как это подразумевается:
 
+{% raw %}
 ```html
 <slot-example>
   <template slot-scope="slotProps">
@@ -526,9 +565,11 @@ function (slotProps) {
   </template>
 </slot-example>
 ```
+{% endraw %}
 
 Атрибут `slot-scope` также можно использовать непосредственно не только на элементах `<template>` (включая компоненты):
 
+{% raw %}
 ```html
 <slot-example>
   <span slot-scope="slotProps">
@@ -536,9 +577,11 @@ function (slotProps) {
   </span>
 </slot-example>
 ```
+{% endraw %}
 
 Значение `slot-scope` может принимать любое допустимое выражение JavaScript, которое может использоваться в позиции аргумента определения функции. Это означает, что в поддерживаемых средах ([однофайловых компонентах](single-file-components.md) или [современных обозревателях](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)) также можно использовать [деструктурирование ES2015](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80_%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2) в выражении, например так:
 
+{% raw %}
 ```html
 <slot-example>
   <span slot-scope="{ msg }">
@@ -546,9 +589,11 @@ function (slotProps) {
   </span>
 </slot-example>
 ```
+{% endraw %}
 
 Используя `<todo-list>` описанный [выше](#Другие-примеры) в качестве примера, вот равнозначная запись с использованием `slot-scope`:
 
+{% raw %}
 ```html
 <todo-list v-bind:todos="todos">
   <template slot="todo" slot-scope="{ todo }">
@@ -557,3 +602,4 @@ function (slotProps) {
   </template>
 </todo-list>
 ```
+{% endraw %}

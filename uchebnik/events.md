@@ -9,6 +9,7 @@
 
 Например:
 
+{% raw %}
 ```html
 <div id="example-1">
   <button v-on:click="counter += 1">+1</button>
@@ -23,6 +24,7 @@ var example1 = new Vue({
   }
 })
 ```
+{% endraw %}
 
 Результат:
 

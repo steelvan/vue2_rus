@@ -269,15 +269,18 @@ template: '<div><stack-overflow></stack-overflow></div>'
 
 Предположим, что вы создаёте дерево каталога файлов, как например в Finder или File Explorer. У вас может быть компонент `tree-folder` с таким шаблоном:
 
+{% raw %}
 ```html
 <p>
   <span>{{ folder.name }}</span>
   <tree-folder-contents :children="folder.children"/>
 </p>
 ```
+{% endraw %}
 
 Затем компонент `tree-folder-contents` с этим шаблоном:
 
+{% raw %}
 ```html
 <ul>
   <li v-for="child in children">
@@ -286,6 +289,7 @@ template: '<div><stack-overflow></stack-overflow></div>'
   </li>
 </ul>
 ```
+{% endraw %}
 
 Когда вы присмотритесь, вы увидите, что эти компоненты фактически будут потомком _и_ предком в дереве отрисовки — парадокс! При регистрации компонентов глобально с помощью `Vue.component` этот парадокс разрешается автоматически за вас. Если это ваш случай, можете не читать дальше.
 

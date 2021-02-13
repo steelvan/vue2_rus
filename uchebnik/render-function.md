@@ -105,9 +105,11 @@ Vue.component('anchored-heading', {
 
 Обновление всех этих узлов может быть затруднительно, но, к счастью, вам не придётся делать это вручную. Вы просто вставляете в шаблон определённый HTML-код, который вы хотите отобразить на странице:
 
+{% raw %}
 ```html
 <h1>{{ blogTitle }}</h1>
 ```
+{% endraw %}
 
 Или то же, но с использованием функции-создателя:
 
@@ -310,12 +312,14 @@ render: function (createElement) {
 
 Функциональность, легко достижимая в JavaScript, не требует от Vue какой-либо альтернативы. Например, используемые в шаблонах `v-if` и `v-for`:
 
+{% raw %}
 ```html
 <ul v-if="items.length">
   <li v-for="item in items">{{ item.name }}</li>
 </ul>
 <p v-else>Ничего не найдено.</p>
 ```
+{% endraw %}
 
 При использовании функции-создателя это можно легко переписать с помощью `if`/`else` и `map`:
 
@@ -436,6 +440,7 @@ render: function (createElement) {
 
 Чтобы передать слоты со своей областью видимости в дочерний компонент при помощи функции-создателя,  добавьте свойство `scopedSlots` в данные VNode:
 
+{% raw %}
 ```js
 render: function (createElement) {
   // `<div><child v-slot="props"><span>{{ props.text }}</span></child></div>`
@@ -452,6 +457,7 @@ render: function (createElement) {
   ])
 }
 ```
+{% endraw %}
 
 ## JSX
 

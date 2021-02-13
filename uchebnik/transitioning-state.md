@@ -16,6 +16,7 @@
 
 Наблюдатели позволяют нам анимировать изменения любых числовых свойств. В такой абстрактной форме это может звучать сложновато, так что давайте просто разберём пример с использованием [GreenSock](https://greensock.com/):
 
+{% raw %}
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
 
@@ -24,6 +25,7 @@
   <p>{{ animatedNumber }}</p>
 </div>
 ```
+{% endraw %}
 
 ```js
 new Vue({
@@ -49,6 +51,7 @@ new Vue({
 
 Когда вы изменяете число, это изменение в элементе под полем ввода анимуется. Для демонстрации — неплохо, но как насчёт параметров, которые напрямую как числа не хранятся, например, таких, как CSS-цвета? Используя [Tween.js](https://github.com/tweenjs/tween.js) и [Color.js](https://github.com/brehaut/color-js), мы можем решить эту задачу:
 
+{% raw %}
 ```html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
 <script src="https://cdn.jsdelivr.net/npm/color-js@1.0.3"></script>
@@ -128,6 +131,7 @@ new Vue({
   height: 50px;
 }
 ```
+{% endraw %}
 
 Пример на https://ru.vuejs.org/v2/guide/transitioning-state.html
 
@@ -143,6 +147,7 @@ new Vue({
 
 Управление множеством переходов может быстро переусложнить экземпляр или компонент. К счастью, многие анимации могут быть выделены в специализированные дочерние компоненты. Давайте проделаем эту операцию с анимированным числом из одного из предыдущих примеров:
 
+{% raw %}
 ```html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
 
@@ -220,6 +225,7 @@ new Vue({
   }
 })
 ```
+{% endraw %}
 
 Пример на https://ru.vuejs.org/v2/guide/transitioning-state.html
 

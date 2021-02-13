@@ -246,6 +246,7 @@ data: function () {
 
 #### Плохо
 
+{% raw %}
 ```html
 <ul>
   <li v-for="todo in todos">
@@ -253,10 +254,11 @@ data: function () {
   </li>
 </ul>
 ```
-
+{% endraw %}
 
 #### Хорошо
 
+{% raw %}
 ```html
 <ul>
   <li
@@ -267,6 +269,7 @@ data: function () {
   </li>
 </ul>
 ```
+{% endraw %}
 
 
 ### Избегайте использования `v-if` с `v-for` <sup data-p="a">важно</sup>
@@ -283,6 +286,7 @@ data: function () {
 
 Когда Vue обрабатывает директивы, `v-for` имеет более высокий приоритет, чем `v-if`, поэтому такой шаблон:
 
+{% raw %}
 ```html
 <ul>
   <li
@@ -294,6 +298,7 @@ data: function () {
   </li>
 </ul>
 ```
+{% endraw %}
 
 Будет аналогичен подобному:
 
@@ -319,6 +324,7 @@ computed: {
 }
 ```
 
+{% raw %}
 ```html
 <ul>
   <li
@@ -329,6 +335,7 @@ computed: {
   </li>
 </ul>
 ```
+{% endraw %}
 
 Мы получаем следующие преимущества:
 
@@ -338,6 +345,7 @@ computed: {
 
 Мы получаем такие же преимущества обновив подобное:
 
+{% raw %}
 ```html
 <ul>
   <li
@@ -349,9 +357,11 @@ computed: {
   </li>
 </ul>
 ```
+{% endraw %}
 
 до такого:
 
+{% raw %}
 ```html
 <ul v-if="shouldShowUsers">
   <li
@@ -362,12 +372,14 @@ computed: {
   </li>
 </ul>
 ```
+{% endraw %}
 
 Перемещая `v-if` в элемент контейнера, мы больше не проверяем `shouldShowUsers` для _каждого_ пользователя в списке. Вместо этого мы проверяем его один раз и даже не выполняем `v-for` если значение `shouldShowUsers` будет false.
 
 
 #### Плохо
 
+{% raw %}
 ```html
 <ul>
   <li
@@ -1164,13 +1176,13 @@ props: {
 #### Плохо
 
 ```html
-{ {
+{{
   fullName.split(' ').map(
       function (word) {
         return word[0].toUpperCase() + word.slice(1)
       }
   ).join(' ')
-} }
+}}
 ```
 
 
@@ -1848,5 +1860,5 @@ export default {
 </script>
 ```
 
-
+{% endraw %}
 
