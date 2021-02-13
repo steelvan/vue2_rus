@@ -1161,13 +1161,10 @@ props: {
 
 Сложные выражения в ваших шаблонах делают их менее понятными. Мы должны стремиться к описанию _что_ должно отобразиться, а не _как_ мы вычисляем это значение. Вычисляемые свойства и методы также упрощают переиспользование кода.
 
-
 #### Плохо
 
 ```html
-{{
-  fullName.split(' ').map(function (word) { return word[0].toUpperCase() + word.slice(1) } ).join(' ')
-}}
+{{ fullName.split(' ').map(function (word) { return word[0].toUpperCase() + word.slice(1) } ).join(' ') }}
 ```
 
 
