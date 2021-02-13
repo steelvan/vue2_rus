@@ -1165,8 +1165,7 @@ props: {
 
 ```html
 {{
-  fullName.split(' ').map(
-      function (word) {...} )
+  fullName.split(' ')
 }}
 ```
 
