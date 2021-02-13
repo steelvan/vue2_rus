@@ -7,7 +7,7 @@
 
 <iframe id="github-iframe" src=""></iframe>
 <script>
-    fetch('https://api.github.com/repos/ileathan/hubot-mubot/contents/src/mubot.coffee')
+    fetch('https://api.github.com/repos/steelvan/vue2_3/guide2/1.html')
         .then(function(response) {
             return response.json();
         }).then(function(data) {
