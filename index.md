@@ -314,17 +314,17 @@
 * [Управление состоянием приложения без flux ](./uchebnik/style-guide.md#управление-состоянием-приложения-без-flux-используйте-с-осторожностью)
 
 ### Рецепты
-* [Добавление свойств экземпляра](../recepti/adding-instance-properties.md)  
-* [Избежание утечек памяти](../recepti/avoiding-memory-leaks.md)  
-* [Хранение данных на клиенте](../recepti/client-side-storage.md)  
-* [Самодельные директивы крутки](../recepti/creating-custom-scroll-directives.md)  
-* [Отладка в VS Code](../recepti/debugging-in-vscode.md)  
-* [Правка SVG иконок](../recepti/editable-svg-icons.md)  
-* [Проверка форм](../recepti/form-validation.md)  
-* [Слоты с ограниченной видимостью](../recepti/practical-use-of-scoped-slots.md)  
-* [Бессерверный журнал](../recepti/serverless-blog.md)  
-* [Тестование vue](../recepti/unit-testing-vue-components.md)  
-* [Запрос к серверу через Axios](../recepti/using-axios-to-consume-apis.md)  
+* [Добавление свойств экземпляра](./recepti/adding-instance-properties.md)  
+* [Избежание утечек памяти](./recepti/avoiding-memory-leaks.md)  
+* [Хранение данных на клиенте](./recepti/client-side-storage.md)  
+* [Самодельные директивы крутки](./recepti/creating-custom-scroll-directives.md)  
+* [Отладка в VS Code](./recepti/debugging-in-vscode.md)  
+* [Правка SVG иконок](./recepti/editable-svg-icons.md)  
+* [Проверка форм](./recepti/form-validation.md)  
+* [Слоты с ограниченной видимостью](./recepti/practical-use-of-scoped-slots.md)  
+* [Бессерверный журнал](./recepti/serverless-blog.md)  
+* [Тестование vue](./recepti/unit-testing-vue-components.md)  
+* [Запрос к серверу через Axios](./recepti/using-axios-to-consume-apis.md)  
 
 
 
