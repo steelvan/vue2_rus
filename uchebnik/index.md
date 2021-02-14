@@ -1,9 +1,24 @@
 
-{% raw %}
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-{% endraw %}
 
 # Что такое Vue.js?
+
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
 
 Vue (произносится /vjuː/, примерно как **view**) — это **прогрессивный каркас** для создания клиентских веб-морд. В отличие от каркасов-монолитов, Vue создан пригодным для постепенного внедрения. Его ядро в первую очередь решает задачи уровня представления (view), что упрощает сопряжение другими библиотеками и существующими проектами. С другой стороны, Vue полностью подходит и для создания сложных одностраничных ОСП приложений если использовать его совместно с [современными инструментами](single-file-components.md) и [дополнительными библиотеками](https://github.com/vuejs/awesome-vue#components--libraries).
 
