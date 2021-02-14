@@ -138,12 +138,12 @@ new Vue({
 
 {% raw %}
 <div id="example-3" class="demo">
-  <input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
-  <label for="jack">Джек</label>
-  <input type="checkbox" id="john" value="Джон" v-model="checkedNames">
-  <label for="john">Джон</label>
-  <input type="checkbox" id="mike" value="Майк" v-model="checkedNames">
-  <label for="mike">Майк</label>
+  <input type="checkbox" id="jack" value="Иван" v-model="checkedNames">
+  <label for="jack">Иван</label>
+  <input type="checkbox" id="john" value="Петр" v-model="checkedNames">
+  <label for="john">Петр</label>
+  <input type="checkbox" id="mike" value="Толик" v-model="checkedNames">
+  <label for="mike">Толик</label>
   <br>
   <span>Отмеченные имена: {{ checkedNames }}</span>
 </div>
