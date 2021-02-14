@@ -2,6 +2,24 @@
 # Фильтры
 
 
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
+
 Для распространённых задач форматирования текста во Vue используются фильтры. Они находят своё применение в двух местах: **в mustache-интерполяциях и в выражениях `v-bind`** (последнее поддерживается в 2.1.0+). Фильтры добавляются в конце выражения JavaScript и отделяются вертикальной чертой:
 
 {% raw %}
@@ -44,7 +62,29 @@ new Vue({
 
 Ниже приведён пример использования нашего фильтра `capitalize`:
 
-Пример на https://ru.vuejs.org/v2/guide/filters.html
+{% raw %}
+<div id="example_1" class="demo">
+  <input type="text" v-model="message">
+  <p>{{ message | capitalize }}</p>
+</div>
+<script>
+  new Vue({
+    el: '#example_1',
+    data: function () {
+      return {
+        message: 'john'
+      }
+    },
+    filters: {
+      capitalize: function (value) {
+        if (!value) return ''
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1)
+      }
+    }
+  })
+</script>
+{% endraw %}
 
 Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра `capitalize` получит значение `message` в качестве аргумента.
 
