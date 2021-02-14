@@ -1,6 +1,23 @@
 
 # Вычисляемые свойства и слежение
 
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
 
 ## Вычисляемые свойства
 
@@ -44,6 +61,26 @@ var vm = new Vue({
   }
 })
 ```
+
+{% raw %}
+<div id="example" class="demo">
+  <p>Изначальное сообщение: «{{ message }}»</p>
+  <p>Сообщение задом наперёд: «{{ reversedMessage }}»</p>
+</div>
+<script>
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Привет'
+  },
+  computed: {
+    reversedMessage: function () {
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
+</script>
+{% endraw %}
 
 Мы определили вычисляемое свойство `reversedMessage`. Написанная нами функция будет использоваться как получатель свойства `vm.reversedMessage`:
 
@@ -232,6 +269,53 @@ var watchExampleVM = new Vue({
 })
 </script>
 ```
+{% endraw %}
+
+{% raw %}
+<div id="watch-example" class="demo">
+  <p>
+    Задайте вопрос, на который можно ответить «да» или «нет»:
+    <input v-model="question">
+  </p>
+  <p>{{ answer }}</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+<script>
+var watchExampleVM = new Vue({
+  el: '#watch-example',
+  data: {
+    question: '',
+    answer: 'Пока вы не зададите вопрос, я не могу ответить!'
+  },
+  watch: {
+    question: function (newQuestion, oldQuestion) {
+      this.answer = 'Ожидаю, когда вы закончите печатать...'
+      this.debouncedGetAnswer()
+    }
+  },
+  created: function () {
+    this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
+  },
+  methods: {
+    getAnswer: function () {
+      if (this.question.indexOf('?') === -1) {
+        this.answer = 'Вопросы обычно заканчиваются вопросительным знаком. ;-)'
+        return
+      }
+      this.answer = 'Думаю...'
+      var vm = this
+      axios.get('https://yesno.wtf/api')
+        .then(function (response) {
+          vm.answer = _.capitalize(response.data.answer)
+        })
+        .catch(function (error) {
+          vm.answer = 'Ошибка! Не могу связаться с API. ' + error
+        })
+    }
+  }
+})
+</script>
 {% endraw %}
 
 В данном случае использование настройки `watch` позволило выполнять асинхронную операцию (обращение к API), ограничивать частоту выполнения этой операции и устанавливать промежуточные состояния до получения ответа от сервера. Ничего из этого не удалось бы достичь с помощью вычисляемых свойств.
