@@ -1,12 +1,43 @@
 
 # Пользовательские директивы
 
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
 
 ## Введение
 
 Помимо встроенных директив (таких как `v-model` и `v-show`), Vue позволяет использовать ваши собственные. При этом важно понимать, что основным механизмом создания повторно используемого кода во Vue 2.0 всё-таки являются компоненты. Тем не менее, для выполнения низкоуровневых операций с DOM пользовательские директивы могут очень пригодиться. В качестве примера сделаем фокус на элементе input:
 
-Пример на https://ru.vuejs.org/v2/guide/custom-directive.html
+{% raw %}
+<div id="simplest-directive-example" class="demo">
+  <input v-focus>
+</div>
+<script>
+Vue.directive('focus', {
+  inserted: function (el) {
+    el.focus()
+  }
+})
+new Vue({
+  el: '#simplest-directive-example'
+})
+</script>
+{% endraw %}
 
 После загрузки страницы этот элемент получает фокус ввода (примечание: `autofocus` не работает на мобильном Safari). Если вы никуда не кликнули с момента открытия этой главы руководства, фокус ввода и сейчас должен быть на этом элементе. Рассмотрим директиву подробнее:
 
@@ -103,7 +134,29 @@ new Vue({
 })
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/custom-directive.html
+{% raw %}
+<div id="hook-arguments-example" v-demo:foo.a.b="message" class="demo"></div>
+<script>
+Vue.directive('demo', {
+  bind: function (el, binding, vnode) {
+    var s = JSON.stringify
+    el.innerHTML =
+      'name: '       + s(binding.name) + '<br>' +
+      'value: '      + s(binding.value) + '<br>' +
+      'expression: ' + s(binding.expression) + '<br>' +
+      'argument: '   + s(binding.arg) + '<br>' +
+      'modifiers: '  + s(binding.modifiers) + '<br>' +
+      'vnode keys: ' + Object.keys(vnode).join(', ')
+  }
+})
+new Vue({
+  el: '#hook-arguments-example',
+  data: {
+    message: 'привет!'
+  }
+})
+</script>
+{% endraw %}
 
 ### Динамические аргументы директивы
 
@@ -161,7 +214,12 @@ new Vue({
 
 Результат:
 
-Пример на https://ru.vuejs.org/v2/guide/custom-directive.html
+{% raw %}
+<iframe height="200" style="width: 100%;" class="demo" scrolling="no" title="Dynamic Directive Arguments" src="//codepen.io/team/Vue/embed/rgLLzb/?height=300&theme-id=32763&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  Посмотрите Pen <a href='https://codepen.io/team/Vue/pen/rgLLzb/'>Dynamic Directive Arguments</a> by Vue
+  (<a href='https://codepen.io/Vue'>@Vue</a>) на <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+{% endraw %}
 
 Теперь пользовательская директива достаточно гибкая для использования в нескольких различных случаях.
 
