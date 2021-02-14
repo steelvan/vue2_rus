@@ -113,7 +113,7 @@ Vue старается управлять элементами DOM настол�
       <input placeholder="Введите адрес email">
     </template>
   </div>
-  <button @click="toggleLoginType">Переключить тип логина</button>
+  <button v-on:click="toggleLoginType">Переключить тип логина</button>
 </div>
 <script>
 new Vue({
