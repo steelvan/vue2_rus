@@ -35,19 +35,19 @@ var app = new Vue({
 ```
 {% endraw %}
 
-		{% raw %}
-		<div id="app" class="demo">
-			{{ message }}
-		</div>
-		<script>
-			var app = new Vue({
-				el: '#app',
-				data: {
-					message: 'Привет, Vue!'
-				}
-			})
-		</script>
-		{% endraw %}
+{% raw %}
+<div id="app" class="demo">
+	{{ message }}
+</div>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			message: 'Привет, Vue!'
+		}
+	})
+</script>
+{% endraw %}
 
 Вот мы и создали наше первое Vue-приложение! Выглядит как простая отрисовка шаблона, но «под капотом» Vue выполнил немало работы. Данные и DOM теперь **реактивно** связаны. Как это проверить? Просто откройте консоль JavaScript в обозревателе (прямо здесь, на этой странице) и задайте свойству `app.message` новое значение. Вы тут же увидите соответствующее изменение в обозревателе.
 
