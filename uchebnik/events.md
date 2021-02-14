@@ -117,6 +117,7 @@ var example2 = new Vue({
   }
 })
 </script>
+{% endraw %}
 
 ## Методы и встрочные-обработчики
 
