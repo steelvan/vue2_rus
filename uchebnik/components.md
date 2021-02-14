@@ -370,7 +370,7 @@ Vue.component('blog-post', {
 
 {% raw %}
 <div id="blog-posts-events-demo" class="demo">
-  <div :style="{ fontSize: postFontSize + 'em' }">
+  <div style="font-size: 1.8em;">
     <blog-post
       v-for="post in posts"
       v-bind:key="post.id"
