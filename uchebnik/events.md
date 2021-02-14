@@ -1,6 +1,23 @@
 
 # Обработка событий
 
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
 
 ## Подписка на события
 
@@ -26,6 +43,21 @@ var example1 = new Vue({
 {% endraw %}
 
 Результат:
+
+{% raw %}
+<div id="example-1" class="demo">
+  <button v-on:click="counter += 1">+1</button>
+  <p>Кнопка выше была нажата {{ counter }} раз</p>
+</div>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    counter: 0
+  }
+})
+</script>
+{% endraw %}
 
 ## Обработчики событий
 
@@ -65,6 +97,27 @@ example2.greet() // => 'Привет, Vue.js!'
 
 Результат:
 
+{% raw %}
+<div id="example-2" class="demo">
+  <button v-on:click="greet">Поприветствовать</button>
+</div>
+<script>
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    name: 'Vue.js'
+  },
+  methods: {
+    greet: function (event) {
+      alert('Привет, ' + this.name + '!')
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+})
+</script>
+
 ## Методы и встрочные-обработчики
 
 Кроме указания имени метода, можно использовать и JavaScript-выражения:
@@ -86,6 +139,24 @@ new Vue({
 })
 ```
 
+Результат:
+
+{% raw %}
+<div id="example-3" class="demo">
+  <button v-on:click="say('hi')">Скажи hi</button>
+  <button v-on:click="say('what')">Скажи what</button>
+</div>
+<script>
+new Vue({
+  el: '#example-3',
+  methods: {
+    say: function (message) {
+      alert(message)
+    }
+  }
+})
+</script>
+{% endraw %}
 
 Иногда в встрочных-обработчиках необходим доступ к оригинальному событию DOM. Его можно передать в метод, используя специальную переменную `$event`:
 
