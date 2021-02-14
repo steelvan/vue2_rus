@@ -1,6 +1,23 @@
 
 # Основы компонентов
 
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
 
 ## Базовый пример
 
@@ -28,7 +45,23 @@ Vue.component('button-counter', {
 </div>
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/components.html
+{% raw %}
+<div id="components-demo" class="demo">
+  <button-counter></button-counter>
+</div>
+<script>
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count += 1">Счётчик кликов — {{ count }}</button>'
+})
+new Vue({ el: '#components-demo' })
+</script>
+{% endraw %}
+
 
 Так как компоненты это переиспользуемые экземпляры Vue, то они принимают те же настройки что и `new Vue`, такие как `data`, `computed`, `watch`, `methods`, перехватчики жизненного цикла. Единственными исключениями будут несколько специфичных для корневого экземпляра настройек, например `el`.
 
@@ -44,7 +77,16 @@ Vue.component('button-counter', {
 </div>
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/components.html
+{% raw %}
+<div id="components-demo2" class="demo">
+  <button-counter></button-counter>
+  <button-counter></button-counter>
+  <button-counter></button-counter>
+</div>
+<script>
+new Vue({ el: '#components-demo2' })
+</script>
+{% endraw %}
 
 Обратите внимание, при нажатиях на кнопки, каждая изменяет свой собственный, отдельный `count`. Это потому, что каждый раз когда вы используете компонент будет создан его новый **экземпляр**.
 
@@ -70,7 +112,25 @@ data: function () {
 
 Если бы не было этого правила, нажатие на одну кнопку повлияло бы на данные _всех других экземпляров_, как например тут:
 
-Пример на https://ru.vuejs.org/v2/guide/components.html
+{% raw %}
+<div id="components-demo3" class="demo">
+  <button-counter2></button-counter2>
+  <button-counter2></button-counter2>
+  <button-counter2></button-counter2>
+</div>
+<script>
+var buttonCounter2Data = {
+  count: 0
+}
+Vue.component('button-counter2', {
+  data: function () {
+    return buttonCounter2Data
+  },
+  template: '<button v-on:click="count++">Счётчик кликов — {{ count }}</button>'
+})
+new Vue({ el: '#components-demo3' })
+</script>
+{% endraw %}
 
 ## Организация компонентов
 
@@ -117,7 +177,20 @@ Vue.component('blog-post', {
 <blog-post title="Why Vue is so fun"></blog-post>
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/components.html
+{% raw %}
+<div id="blog-post-demo" class="demo">
+  <blog-post1 title="My journey with Vue"></blog-post1>
+  <blog-post1 title="Blogging with Vue"></blog-post1>
+  <blog-post1 title="Why Vue is so fun"></blog-post1>
+</div>
+<script>
+Vue.component('blog-post1', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>'
+})
+new Vue({ el: '#blog-post-demo' })
+</script>
+{% endraw %}
 
 Однако, в типичном приложении у вас наверняка будет массив записей в `data`:
 
@@ -295,7 +368,43 @@ Vue.component('blog-post', {
 
 Благодаря прослушиванию события `v-on:enlarge-text="postFontSize += 0.1"`, родительский компонент отследит событие и обновит значение `postFontSize`.
 
-Пример на https://ru.vuejs.org/v2/guide/components.html
+{% raw %}
+<div id="blog-posts-events-demo" class="demo">
+  <div :style="{ fontSize: postFontSize + 'em' }">
+    <blog-post
+      v-for="post in posts"
+      v-bind:key="post.id"
+      v-bind:post="post"
+      v-on:enlarge-text="postFontSize += 0.1"
+    ></blog-post>
+  </div>
+</div>
+<script>
+Vue.component('blog-post', {
+  props: ['post'],
+  template: '\
+    <div class="blog-post">\
+      <h3>{{ post.title }}</h3>\
+      <button v-on:click="$emit(\'enlarge-text\')">\
+        Увеличить размер текста\
+      </button>\
+      <div v-html="post.content"></div>\
+    </div>\
+  '
+})
+new Vue({
+  el: '#blog-posts-events-demo',
+  data: {
+    posts: [
+      { id: 1, title: 'My journey with Vue', content: '...content...' },
+      { id: 2, title: 'Blogging with Vue', content: '...content...' },
+      { id: 3, title: 'Why Vue is so fun', content: '...content...' }
+    ],
+    postFontSize: 1
+  }
+})
+</script>
+{% endraw %}
 
 ### Передача данных вместе с событием
 
@@ -400,7 +509,31 @@ Vue.component('custom-input', {
 
 Что может выглядеть примерно так:
 
-Пример на https://ru.vuejs.org/v2/guide/components.html
+{% raw %}
+<div id="slots-demo" class="demo">
+  <alert-box>
+    Произошло что-то плохое.
+  </alert-box>
+</div>
+<script>
+Vue.component('alert-box', {
+  template: '\
+    <div class="demo-alert-box">\
+      <strong>Ошибка!</strong>\
+      <slot></slot>\
+    </div>\
+  '
+})
+new Vue({ el: '#slots-demo' })
+</script>
+<style>
+.demo-alert-box {
+  padding: 10px 20px;
+  background: #f3beb8;
+  border: 1px solid #f09898;
+}
+</style>
+{% endraw %}
 
 К счастью, эта задача легко решается с помощью пользовательского элемента `<slot>` у Vue:
 
@@ -423,7 +556,62 @@ Vue.component('alert-box', {
 
 Иногда бывает полезно динамически переключаться между компонентами, например в интерфейсе с вкладками:
 
-Пример на https://ru.vuejs.org/v2/guide/components.html
+{% raw %}
+<div id="dynamic-component-demo" class="demo">
+  <button
+    v-for="tab in tabs"
+    v-bind:key="tab"
+    class="dynamic-component-demo-tab-button"
+    v-bind:class="{ 'dynamic-component-demo-tab-button-active': tab === currentTab }"
+    v-on:click="currentTab = tab"
+  >
+    {{ tab }}
+  </button>
+  <component
+    v-bind:is="currentTabComponent"
+    class="dynamic-component-demo-tab"
+  ></component>
+</div>
+<script>
+Vue.component('tab-home', { template: '<div>Компонент Home</div>' })
+Vue.component('tab-posts', { template: '<div>Компонент Posts</div>' })
+Vue.component('tab-archive', { template: '<div>Компонент Archive</div>' })
+new Vue({
+  el: '#dynamic-component-demo',
+  data: {
+    currentTab: 'Home',
+    tabs: ['Home', 'Posts', 'Archive']
+  },
+  computed: {
+    currentTabComponent: function () {
+      return 'tab-' + this.currentTab.toLowerCase()
+    }
+  }
+})
+</script>
+<style>
+.dynamic-component-demo-tab-button {
+  padding: 6px 10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: #f0f0f0;
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+.dynamic-component-demo-tab-button:hover {
+  background: #e0e0e0;
+}
+.dynamic-component-demo-tab-button-active {
+  background: #e0e0e0;
+}
+.dynamic-component-demo-tab {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+</style>
+{% endraw %}
 
 Показанное выше стало возможным с помощью элемента Vue `<component>` со специальным атрибутом `is`:
 
