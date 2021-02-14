@@ -1,6 +1,23 @@
 
 # Условная отрисовка
 
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
 
 ## `v-if`
 
@@ -84,6 +101,35 @@ Vue старается управлять элементами DOM настол�
 
 Изменение `loginType` в коде выше не сотрёт то, что пользователь ввёл в поле. Оба шаблона используют одни и те же элементы, поэтому `<input>` не заменяется — только его `placeholder`.
 
+{% raw %}
+<div id="no-key-example" class="demo">
+  <div>
+    <template v-if="loginType === 'username'">
+      <label>Имя пользователя</label>
+      <input placeholder="Введите имя пользователя">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Введите адрес email">
+    </template>
+  </div>
+  <button @click="toggleLoginType">Переключить тип логина</button>
+</div>
+<script>
+new Vue({
+  el: '#no-key-example',
+  data: {
+    loginType: 'username'
+  },
+  methods: {
+    toggleLoginType: function () {
+      return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+    }
+  }
+})
+</script>
+{% endraw %}
+
 Иногда такое поведение нежелательно, поэтому Vue можно явно указать: «эти элементы должны быть полностью независимы, не надо их переиспользовать». Для этого всего лишь нужно указать уникальное значение ключа `key`:
 
 ```html
@@ -96,6 +142,36 @@ Vue старается управлять элементами DOM настол�
   <input placeholder="Введите адрес email" key="email-input">
 </template>
 ```
+Теперь эти поля ввода будут отрисовываться заново при каждом переключении:
+
+{% raw %}
+<div id="key-example" class="demo">
+  <div>
+    <template v-if="loginType === 'username'">
+      <label>Имя пользователя</label>
+      <input placeholder="Введите имя пользователя" key="username-input">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Введите адрес email" key="email-input">
+    </template>
+  </div>
+  <button @click="toggleLoginType">Переключить тип логина</button>
+</div>
+<script>
+new Vue({
+  el: '#key-example',
+  data: {
+    loginType: 'username'
+  },
+  methods: {
+    toggleLoginType: function () {
+      return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+    }
+  }
+})
+</script>
+{% endraw %}
 
 Обратите внимание, элементы `<label>` всё ещё эффективно переиспользуются, поскольку для них `key` не указаны.
 
