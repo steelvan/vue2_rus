@@ -20,16 +20,29 @@
     <p>Бурное развитие внутреннего туризма привело Томаса Кука.</p>
 </details></td>
     </tr>
-    <tr>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td>3</td>
-    </tr>
 </table>
 {% endraw %}
 
-
+<table>
+    <tr>
+      <td><a href="./uchebnik/index.md">Что такое vue.js</a></td>
+      <td>
+        <details> <summary>Что такое vue.js</summary>
+            <ul>
+                <li>
+                    <a href="./uchebnik/index.md#декларативная-отрисовка">Декларативная отрисовка</a>
+                </li>
+                <li>
+                    <a href="./uchebnik/index.md#условия-и-циклы">Условия и циклы</a>
+                </li>
+                <li>
+                    <a href="./uchebnik/index.md#работа-с-пользовательским-вводом">Работа с пользовательским вводом</a>
+                </li>
+            </ul>
+         </details>
+      </td>
+    </tr>
+</table>
 
 
 
