@@ -11,6 +11,7 @@
 
 
 
+{% raw %}
 <table>
     <tr>
 	    <td rowspan="3"><a href="./uchebnik/index.md>что такое vue.js</a></td>
@@ -23,7 +24,7 @@
         <td></td>
     </tr>
 </table>
-
+{% endraw %}
 
 
 
