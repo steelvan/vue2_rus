@@ -2,7 +2,7 @@
 # Главная vue.js
 
 
-<table style="width:100%">
+<table style="width:100%; display: table;">
 	<tbody>
 		<tr>
 			<td style="vertical-align:top;" rowspan="10">
