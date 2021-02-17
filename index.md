@@ -11,6 +11,13 @@
 
 
 
+<table>
+<tr>
+<td>This is *true* markdown text.</td>
+</tr>
+</table>
+
+
 
 ### Что такое Vue.js
 
