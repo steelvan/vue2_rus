@@ -259,7 +259,7 @@ new Vue({
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenLite.min.js"></script>
 <div id="svg-polygon-demo" class="demo">
   <svg width="200" height="200" class="demo-svg">
-    <polygon v-points="points" class="demo-polygon"></polygon>
+    <polygon :points="points" class="demo-polygon"></polygon>
     <circle cx="100" cy="100" r="90" class="demo-circle"></circle>
   </svg>
   <label>Количество сторон: {{ sides }}</label>
