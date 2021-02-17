@@ -2,64 +2,39 @@
 # Главная vue.js
 
 
-[Что такое Vue.js](./uchebnik/index.md)   
-[Декларативная отрисовка](./uchebnik/index.md#декларативная-отрисовка)  
-[Условия и циклы](./uchebnik/index.md#условия-и-циклы)  
-[Работа с пользовательским вводом](./uchebnik/index.md#работа-с-пользовательским-вводом)  
-[Разбиение приложения на компоненты](./uchebnik/index.md#разбиение-приложения-на-компоненты)  
-[Отношение к пользовательским элементам Web Components](./uchebnik/index.md#отношение-к-пользовательским-элементам-web-components)  
-
-
-
-{% raw %}
-<table>
-    <tr>
-	<td rowspan="3"><a href="./uchebnik/index.md">что такое vue.js</a></td>
-        <td><details>
-    <summary>Покажи-скрой меня</summary>
-    <p>Бурное развитие внутреннего туризма привело Томаса Кука.</p>
-</details></td>
-    </tr>
-</table>
-{% endraw %}
-
-<table>
-    <tr>
-      <td><a href="./uchebnik/index.md">Что такое vue.js</a></td>
-      <td>
-            <ul>
-                <li>
-                    <a href="./uchebnik/index.md#декларативная-отрисовка">Декларативная отрисовка</a>
-                </li>
-                <li>
-                    <a href="./uchebnik/index.md#условия-и-циклы">Условия и циклы</a>
-                </li>
-                <li>
-                    <a href="./uchebnik/index.md#работа-с-пользовательским-вводом">Работа с пользовательским вводом</a>
-                </li>
-            </ul>
-      </td>
-    </tr>
+<table >
+	<tbody>
+		<tr>
+			<td style="vertical-align: top;" rowspan="10">
+				<a href="./uchebnik/index.md">Что такое Vue.js</a>
+			</td>
+			<td>
+				<a href="./uchebnik/index.md#декларативная-отрисовка">Декларативная отрисовка</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/index.md#условия-и-циклы">Условия и циклы</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/index.md#работа-с-пользовательским-вводом">Работа с пользовательским вводом</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/index.md#разбиение-приложения-на-компоненты">Разбиение приложения на компоненты</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/index.md#отношение-к-пользовательским-элементам-web-components">Отношение к пользовательским элементам Web Components</a>
+			</td>
+		</tr>
+	</tbody>
 </table>
 
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-| <ul><li>item1</li><li>item2</li></ul>| See the list | from the first column|
-
-
-
-
-Глава | Содержание
---- | --- 
-[Что такое Vue.js](./uchebnik/index.md)   | [Декларативная отрисовка](./uchebnik/index.md#декларативная-отрисовка)  
-| [Условия и циклы](./uchebnik/index.md#условия-и-циклы)  
-| [Работа с пользовательским вводом](./uchebnik/index.md#работа-с-пользовательским-вводом)  
-| [Разбиение приложения на компоненты](./uchebnik/index.md#разбиение-приложения-на-компоненты)  
-| [Отношение к пользовательским элементам Web Components](./uchebnik/index.md#отношение-к-пользовательским-элементам-web-components)  
 
 
 
