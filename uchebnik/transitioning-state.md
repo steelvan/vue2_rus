@@ -64,7 +64,32 @@ new Vue({
 })
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitioning-state.html
+{% raw %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+<div id="animated-number-demo" class="demo">
+  <input v-model.number="number" type="number" step="20">
+  <p>{{ animatedNumber }}</p>
+</div>
+<script>
+new Vue({
+  el: '#animated-number-demo',
+  data: {
+    number: 0,
+    tweenedNumber: 0
+  },
+  computed: {
+    animatedNumber: function() {
+      return this.tweenedNumber.toFixed(0);
+    }
+  },
+  watch: {
+    number: function(newValue) {
+      gsap.to(this.$data, { duration: 0.5, tweenedNumber: newValue });
+    }
+  }
+})
+</script>
+{% endraw %}
 
 Когда вы изменяете число, это изменение в элементе под полем ввода анимуется. Для демонстрации — неплохо, но как насчёт параметров, которые напрямую как числа не хранятся, например, таких, как CSS-цвета? Используя [Tween.js](https://github.com/tweenjs/tween.js) и [Color.js](https://github.com/brehaut/color-js), мы можем решить эту задачу:
 
