@@ -1,6 +1,24 @@
 
 # Синтаксис шаблонов
 
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
+
 Для связывания DOM с данными экземпляра Vue использует синтаксис, основанный на HTML. Все шаблоны Vue являются правильным HTML-кодом, который могут разобрать все HTML-разборщики и обозреватели.
 
 Для работы Vue компилирует шаблоны в `render`-функции виртуального DOM. В сочетании с системой реактивности, Vue умеет определять минимальное число компонентов для повторной отрисовки и применяет минимальное количество манипуляций к DOM при изменении состояния приложения.
