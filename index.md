@@ -15,7 +15,10 @@
 <table>
     <tr>
 	<td rowspan="3"><a href="./uchebnik/index.md">что такое vue.js</a></td>
-        <td>1</td>
+        <td><details>
+    <summary>Покажи-скрой меня</summary>
+    <p>Бурное развитие внутреннего туризма привело Томаса Кука.</p>
+</details></td>
     </tr>
     <tr>
         <td>2</td>
