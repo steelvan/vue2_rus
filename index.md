@@ -9,35 +9,23 @@
 1  | [Разбиение приложения на компоненты](./uchebnik/index.md#разбиение-приложения-на-компоненты)  
 1  | [Отношение к пользовательским элементам Web Components](./uchebnik/index.md#отношение-к-пользовательским-элементам-web-components)  
 
-1  | <details><summary>Expand Docker instructions</summary>
-
-```bash
-git clone https://github.com/vlang/v
-cd v
-docker build -t vlang .
-docker run --rm -it vlang:latest
-v
-```
-
-### Docker with Alpine/musl
-
-```bash
-git clone https://github.com/vlang/v
-cd v
-docker build -t vlang --file=Dockerfile.alpine .
-docker run --rm -it vlang:latest
-/usr/local/v/v
-```
-
-</details>
-
 
 
 <table>
-<tr>
-<td>This is *true* markdown text.</td>
-</tr>
+    <tr>
+	    <td rowspan="3"><a href="./uchebnik/index.md>что такое vue.js</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>213123</td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
 </table>
+
+
+
 
 
 
