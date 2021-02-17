@@ -49,7 +49,7 @@ var example1 = new Vue({
 
 {% raw %}
 <ul id="example-1" class="demo">
-  <li v-for="item in items" :key="item.message">
+  <li v-for="item in items" v-key="item.message">
     {{ item.message }}
   </li>
 </ul>
@@ -90,6 +90,28 @@ var example2 = new Vue({
   }
 })
 ```
+
+Результат:
+
+{% raw%}
+<ul id="example-2" class="demo">
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+</ul>
+<script>
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Родитель',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+</script>
+{% endraw %}
 
 Вместо `in` разделителем можно использовать `of`, как в итераторах JavaScript:
 
