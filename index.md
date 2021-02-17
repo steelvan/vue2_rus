@@ -1,7 +1,7 @@
 
 # Главная vue.js
 
-
+{% raw %}
 <table style="width:100%; display: table;">
 	<tbody>
 		<tr>
@@ -73,7 +73,7 @@
 	</tbody>
 </table
 
-
+{% endraw %}
 
 
 
