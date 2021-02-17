@@ -27,7 +27,6 @@
     <tr>
       <td><a href="./uchebnik/index.md">Что такое vue.js</a></td>
       <td>
-        <details> <summary>Что такое vue.js1</summary>
             <ul>
                 <li>
                     <a href="./uchebnik/index.md#декларативная-отрисовка">Декларативная отрисовка</a>
@@ -39,7 +38,6 @@
                     <a href="./uchebnik/index.md#работа-с-пользовательским-вводом">Работа с пользовательским вводом</a>
                 </li>
             </ul>
-         </details>
       </td>
     </tr>
 </table>
