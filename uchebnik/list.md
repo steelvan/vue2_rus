@@ -1,6 +1,23 @@
 
 # Отрисовка списков
 
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
 
 ## Отображение массива элементов с помощью `v-for`
 
@@ -27,6 +44,27 @@ var example1 = new Vue({
   }
 })
 ```
+
+Результат:
+
+{% raw %}
+<ul id="example-1" class="demo">
+  <li v-for="item in items" :key="item.message">
+    {{ item.message }}
+  </li>
+</ul>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+</script>
+{% endraw %}
 
 Внутри блока `v-for` нам доступны свойства из области видимости родителя. У `v-for` также есть второй вариативный параметр с индексом текущего элемента.
 
@@ -86,6 +124,28 @@ new Vue({
 })
 ```
 
+Результат:
+
+{% raw %}
+<ul id="v-for-object" class="demo">
+  <li v-for="value in object">
+    {{ value }}
+  </li>
+</ul>
+<script>
+new Vue({
+  el: '#v-for-object',
+  data: {
+    object: {
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
+    }
+  }
+})
+</script>
+{% endraw %}
+
 Можно использовать второй аргумент для получения имени свойства (ключа объекта):
 
 {% raw %}
@@ -96,6 +156,26 @@ new Vue({
 ```
 {% endraw %}
 
+{% raw %}
+<div id="v-for-object-value-name" class="demo">
+  <div v-for="(value, name) in object">
+    {{ name }}: {{ value }}
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#v-for-object-value-name',
+  data: {
+    object: {
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
+    }
+  }
+})
+</script>
+{% endraw %}
+
 И третий — для индексов:
 
 {% raw %}
@@ -104,6 +184,26 @@ new Vue({
   {{ index }}. {{ name }}: {{ value }}
 </div>
 ```
+{% endraw %}
+
+{% raw %}
+<div id="v-for-object-value-name-index" class="demo">
+  <div v-for="(value, name, index) in object">
+    {{ index }}. {{ name }}: {{ value }}
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#v-for-object-value-name-index',
+  data: {
+    object: {
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
+    }
+  }
+})
+</script>
 {% endraw %}
 
 При переборе по объекту порядок обхода такой же как и в `Object.keys()`. Его повторимость **не гарантируется** при использовании различных реализаций движков JavaScript.
@@ -220,6 +320,17 @@ methods: {
   <span v-for="n in 10">{{ n }} </span>
 </div>
 ```
+{% endraw %}
+
+Результат:
+
+{% raw %}
+<div id="range" class="demo">
+  <span v-for="n in 10">{{ n }} </span>
+</div>
+<script>
+  new Vue({ el: '#range' })
+</script>
 {% endraw %}
 
 ### `v-for` и тег `template`
@@ -360,4 +471,68 @@ new Vue({
   }
 })
 ```
+{% endraw %}
+
+{% raw %}
+<div id="todo-list-example" class="demo">
+  <form v-on:submit.prevent="addNewTodo">
+    <label for="new-todo">Добавить задачу</label>
+    <input
+      v-model="newTodoText"
+      id="new-todo"
+      placeholder="Например, покормить кота"
+    >
+    <button>Добавить</button>
+  </form>
+  <ul>
+    <li
+      is="todo-item"
+      v-for="(todo, index) in todos"
+      v-bind:key="todo.id"
+      v-bind:title="todo.title"
+      v-on:remove="todos.splice(index, 1)"
+    ></li>
+  </ul>
+</div>
+<script>
+Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">Удалить</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      {
+        id: 1,
+        title: 'Помыть посуду'
+      },
+      {
+        id: 2,
+        title: 'Вынести мусор'
+      },
+      {
+        id: 3,
+        title: 'Подстричь газон'
+      }
+    ],
+    nextTodoId: 4
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
+      this.newTodoText = ''
+    }
+  }
+})
+</script>
 {% endraw %}
