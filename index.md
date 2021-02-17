@@ -5,7 +5,7 @@
 <table >
 	<tbody>
 		<tr>
-			<td style="vertical-align: top;" rowspan="10">
+			<td style="vertical-align:top;" rowspan="10">
 				<a href="./uchebnik/index.md">Что такое Vue.js</a>
 			</td>
 			<td>
