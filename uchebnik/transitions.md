@@ -361,6 +361,7 @@ new Vue({
   }
 })
 </script>
+{% endraw %}
 
 ### Совместное использование переходов и анимаций
 
@@ -460,6 +461,7 @@ methods: {
 
 Теперь давайте разберём пример. Возьмём простой JavaScript-переход, использующий Velocity.js:
 
+{% raw %}
 ```html
 <!--
 Velocity работает примерно так же, как и jQuery.animate,
@@ -512,6 +514,7 @@ new Vue({
   }
 })
 ```
+{% endraw %}
 
 {% raw %}
 <div id="example-4" class="demo">
