@@ -1,6 +1,23 @@
 
 # Анимование списков и появления/исчезновения
 
+{% raw %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<style>
+.demo{
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: auto;    
+}
+</style>
+{% endraw %}
 
 ## Общие сведения
 
@@ -53,7 +70,32 @@ new Vue({
 }
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="demo">
+  <button v-on:click="show = !show">
+    Переключить
+  </button>
+  <transition name="demo-transition">
+    <p v-if="show">привет</p>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#demo',
+  data: {
+    show: true
+  }
+})
+</script>
+<style>
+.demo-transition-enter-active, .demo-transition-leave-active {
+  transition: opacity .5s;
+}
+.demo-transition-enter, .demo-transition-leave-to {
+  opacity: 0;
+}
+</style>
+{% endraw %}
 
 Когда элемент, завёрнутый в компонент `transition`, вставляется или удаляется, происходят следующие действия:
 
@@ -125,7 +167,36 @@ new Vue({
 }
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="example-1" class="demo">
+  <button v-on:click="show = !show">
+    Переключить отрисовку
+  </button>
+  <transition name="slide-fade">
+    <p v-if="show">привет</p>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#example-1',
+  data: {
+    show: true
+  }
+})
+</script>
+<style>
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+</style>
+{% endraw %}
 
 ### CSS-анимации
 
@@ -171,7 +242,61 @@ new Vue({
 }
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="example-2" class="demo">
+  <button v-on:click="show = !show">Переключить отображение</button>
+  <transition name="bounce">
+    <p v-show="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.</p>
+  </transition>
+</div>
+
+<style>
+  .bounce-enter-active {
+    -webkit-animation: bounce-in .5s;
+    animation: bounce-in .5s;
+  }
+  .bounce-leave-active {
+    -webkit-animation: bounce-in .5s reverse;
+    animation: bounce-in .5s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    50% {
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @-webkit-keyframes bounce-in {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    50% {
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+</style>
+<script>
+new Vue({
+  el: '#example-2',
+  data: {
+    show: true
+  }
+})
+</script>
+{% endraw %}
 
 ### Пользовательские классы переходов
 
@@ -214,7 +339,28 @@ new Vue({
 })
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+<div id="example-3" class="demo">
+  <button v-on:click="show = !show">
+    Переключить отрисовку
+  </button>
+  <transition
+    name="custom-classes-transition"
+    enter-active-class="animated tada"
+    leave-active-class="animated bounceOutRight"
+  >
+    <p v-if="show">привет</p>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#example-3',
+  data: {
+    show: true
+  }
+})
+</script>
 
 ### Совместное использование переходов и анимаций
 
@@ -367,7 +513,51 @@ new Vue({
 })
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="example-4" class="demo">
+  <button v-on:click="show = !show">
+    Переключить
+  </button>
+  <transition
+    v-on:before-enter="beforeEnter"
+    v-on:enter="enter"
+    v-on:leave="leave"
+  >
+    <p v-if="show">
+      Демо
+    </p>
+  </transition>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script>
+new Vue({
+  el: '#example-4',
+  data: {
+    show: false
+  },
+  methods: {
+    beforeEnter: function (el) {
+      el.style.opacity = 0
+      el.style.transformOrigin = 'left'
+    },
+    enter: function (el, done) {
+      Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+      Velocity(el, { fontSize: '1em' }, { complete: done })
+    },
+    leave: function (el, done) {
+      Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+      Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+      Velocity(el, {
+        rotateZ: '45deg',
+        translateY: '30px',
+        translateX: '30px',
+        opacity: 0
+      }, { complete: done })
+    }
+  }
+})
+</script>
+{% endraw %}
 
 ## Переходы при первичной отрисовке
 
@@ -495,17 +685,122 @@ computed: {
 
 Однако сохраняется одна проблема. Попробуйте щелкнуть на кнопке ниже:
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="no-mode-demo" class="demo">
+  <transition name="no-mode-fade">
+    <button v-if="on" key="on" v-on:click="on = false">
+      on
+    </button>
+    <button v-else key="off" v-on:click="on = true">
+      off
+    </button>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#no-mode-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.no-mode-fade-enter-active, .no-mode-fade-leave-active {
+  transition: opacity .5s
+}
+.no-mode-fade-enter, .no-mode-fade-leave-active {
+  opacity: 0
+}
+</style>
+{% endraw %}
 
 Во время перехода от кнопки «on» к кнопке «off» одновременно отображаются обе кнопки: одна — исчезая, другая — появляясь. Так `<transition>` ведёт себя по умолчанию.
 
 Иногда это поведение подходит, например если оба элемента абсолютно спозиционированы в одном и том же месте:
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="no-mode-absolute-demo" class="demo">
+  <div class="no-mode-absolute-demo-wrapper">
+    <transition name="no-mode-absolute-fade">
+      <button v-if="on" key="on" v-on:click="on = false">
+        on
+      </button>
+      <button v-else key="off" v-on:click="on = true">
+        off
+      </button>
+    </transition>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#no-mode-absolute-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.no-mode-absolute-demo-wrapper {
+  position: relative;
+  height: 18px;
+}
+.no-mode-absolute-demo-wrapper button {
+  position: absolute;
+}
+.no-mode-absolute-fade-enter-active, .no-mode-absolute-fade-leave-active {
+  transition: opacity .5s;
+}
+.no-mode-absolute-fade-enter, .no-mode-absolute-fade-leave-active {
+  opacity: 0;
+}
+</style>
+{% endraw %}
 
 Таким образом можно также сымитировать анимацию слайдера:
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="no-mode-translate-demo" class="demo">
+  <div class="no-mode-translate-demo-wrapper">
+    <transition name="no-mode-translate-fade">
+      <button v-if="on" key="on" v-on:click="on = false">
+        on
+      </button>
+      <button v-else key="off" v-on:click="on = true">
+        off
+      </button>
+    </transition>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#no-mode-translate-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.no-mode-translate-demo-wrapper {
+  position: relative;
+  height: 18px;
+}
+.no-mode-translate-demo-wrapper button {
+  position: absolute;
+}
+.no-mode-translate-fade-enter-active, .no-mode-translate-fade-leave-active {
+  transition: all 1s;
+}
+.no-mode-translate-fade-enter, .no-mode-translate-fade-leave-active {
+  opacity: 0;
+}
+.no-mode-translate-fade-enter {
+  transform: translateX(31px);
+}
+.no-mode-translate-fade-leave-active {
+  transform: translateX(-31px);
+}
+</style>
+{% endraw %}
 
 Тем не менее, одновременное сокрытие и появление элементов — это не всегда то, чего хочется. Поэтому Vue предоставляет альтернативные **режимы перехода**:
 
@@ -521,13 +816,82 @@ computed: {
 </transition>
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="with-mode-demo" class="demo">
+  <transition name="with-mode-fade" mode="out-in">
+    <button v-if="on" key="on" v-on:click="on = false">
+      on
+    </button>
+    <button v-else key="off" v-on:click="on = true">
+      off
+    </button>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#with-mode-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.with-mode-fade-enter-active, .with-mode-fade-leave-active {
+  transition: opacity .5s;
+}
+.with-mode-fade-enter, .with-mode-fade-leave-active {
+  opacity: 0;
+}
+</style>
+{% endraw %}
 
 Добавив всего лишь один атрибут, мы исправили исходную анимацию перехода, не прибегая к редактированию стилей.
 
 Режим `in-out` применяется не столь часто, но для достижения некоторых эффектов и он может быть полезен. Давайте попробуем совместить его с ранее рассмотренной анимацией слайдера:
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="in-out-translate-demo" class="demo">
+  <div class="in-out-translate-demo-wrapper">
+    <transition name="in-out-translate-fade" mode="in-out">
+      <button v-if="on" key="on" v-on:click="on = false">
+        on
+      </button>
+      <button v-else key="off" v-on:click="on = true">
+        off
+      </button>
+    </transition>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#in-out-translate-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.in-out-translate-demo-wrapper {
+  position: relative;
+  height: 18px;
+}
+.in-out-translate-demo-wrapper button {
+  position: absolute;
+}
+.in-out-translate-fade-enter-active, .in-out-translate-fade-leave-active {
+  transition: all .5s;
+}
+.in-out-translate-fade-enter, .in-out-translate-fade-leave-active {
+  opacity: 0;
+}
+.in-out-translate-fade-enter {
+  transform: translateX(31px);
+}
+.in-out-translate-fade-leave-active {
+  transform: translateX(-31px);
+}
+</style>
+{% endraw %}
 
 Круто, правда?
 
@@ -568,7 +932,39 @@ new Vue({
 }
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="transition-components-demo" class="demo">
+  <input v-model="view" type="radio" value="v-a" id="a" name="view"><label for="a">А</label>
+  <input v-model="view" type="radio" value="v-b" id="b" name="view"><label for="b">Б</label>
+  <transition name="component-fade" mode="out-in">
+    <component v-bind:is="view"></component>
+  </transition>
+</div>
+<style>
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to {
+  opacity: 0;
+}
+</style>
+<script>
+new Vue({
+  el: '#transition-components-demo',
+  data: {
+    view: 'v-a'
+  },
+  components: {
+    'v-a': {
+      template: '<div>Компонент А</div>'
+    },
+    'v-b': {
+      template: '<div>Компонент Б</div>'
+    }
+  }
+})
+</script>
+{% endraw %}
 
 ## Переходы в списках
 
@@ -637,7 +1033,50 @@ new Vue({
 }
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="list-demo" class="demo">
+  <button v-on:click="add">Добавить</button>
+  <button v-on:click="remove">Удалить</button>
+  <transition-group name="list" tag="p">
+    <span v-for="item in items" v-key="item" class="list-item">
+      {{ item }}
+    </span>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#list-demo',
+  data: {
+    items: [1,2,3,4,5,6,7,8,9],
+    nextNum: 10
+  },
+  methods: {
+    randomIndex: function () {
+      return Math.floor(Math.random() * this.items.length)
+    },
+    add: function () {
+      this.items.splice(this.randomIndex(), 0, this.nextNum++)
+    },
+    remove: function () {
+      this.items.splice(this.randomIndex(), 1)
+    },
+  }
+})
+</script>
+<style>
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>
+{% endraw %}
 
 С этим примером есть одна проблема. При добавлении или удалении элемента, окружающие его элементы резко перемещаются, вместо того чтобы плавно перелететь на новые места. Мы исправим это позднее.
 
@@ -682,7 +1121,35 @@ new Vue({
 }
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+<div id="flip-list-demo" class="demo">
+  <button v-on:click="shuffle">Перемешать</button>
+  <transition-group name="flip-list" tag="ul">
+    <li v-for="item in items" v-key="item">
+      {{ item }}
+    </li>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#flip-list-demo',
+  data: {
+    items: [1,2,3,4,5,6,7,8,9]
+  },
+  methods: {
+    shuffle: function () {
+      this.items = _.shuffle(this.items)
+    }
+  }
+})
+</script>
+<style>
+.flip-list-move {
+  transition: transform 1s;
+}
+</style>
+{% endraw %}
 
 Хотя это и может выглядеть как магия, «под капотом» Vue использует довольно простую анимационную технику под названием [FLIP](https://aerotwist.com/blog/flip-your-animations/), которая позволяет плавно перевести элементы с их старых позиций на новые, используя css-превращения.
 
@@ -748,13 +1215,121 @@ new Vue({
 }
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+<div id="list-complete-demo" class="demo">
+  <button v-on:click="shuffle">Перемешать</button>
+  <button v-on:click="add">Добавить</button>
+  <button v-on:click="remove">Удалить</button>
+  <transition-group name="list-complete" tag="p">
+    <span v-for="item in items" v-key="item" class="list-complete-item">
+      {{ item }}
+    </span>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#list-complete-demo',
+  data: {
+    items: [1,2,3,4,5,6,7,8,9],
+    nextNum: 10
+  },
+  methods: {
+    randomIndex: function () {
+      return Math.floor(Math.random() * this.items.length)
+    },
+    add: function () {
+      this.items.splice(this.randomIndex(), 0, this.nextNum++)
+    },
+    remove: function () {
+      this.items.splice(this.randomIndex(), 1)
+    },
+    shuffle: function () {
+      this.items = _.shuffle(this.items)
+    }
+  }
+})
+</script>
+<style>
+.list-complete-item {
+  transition: all 1s;
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
+}
+</style>
+{% endraw %}
 
 Важно знать, что FLIP-анимации не работают с элементами, для которых установлен режим позиционирования `display: inline`. Вместо него используйте режим `display: inline-block` или flex-контейнер.
 
 FLIP-анимации не ограничены одной осью. Многомерные массивы могут быть анимированы [столь же просто](https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-list-move-transitions):
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<div id="sudoku-demo" class="demo">
+  <strong>Ленивое судоку</strong>
+  <p>Продолжайте перемешивать, пока случайно не выиграете.</p>
+  <button v-on:click="shuffle">
+    Перемешать
+  </button>
+  <transition-group name="cell" tag="div" class="sudoku-container">
+    <div v-for="cell in cells" v-key="cell.id" class="cell">
+      {{ cell.number }}
+    </div>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#sudoku-demo',
+  data: {
+    cells: Array.apply(null, { length: 81 })
+      .map(function (_, index) {
+        return {
+          id: index,
+          number: index % 9 + 1
+        }
+      })
+  },
+  methods: {
+    shuffle: function () {
+      this.cells = _.shuffle(this.cells)
+    }
+  }
+})
+</script>
+<style>
+.sudoku-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 238px;
+  margin-top: 10px;
+}
+.cell {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #aaa;
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+.cell:nth-child(3n) {
+  margin-right: 0;
+}
+.cell:nth-child(27n) {
+  margin-bottom: 0;
+}
+.cell-move {
+  transition: transform 1s;
+}
+</style>
+{% endraw %}
 
 ### Упругая анимация элементов списка
 
@@ -834,7 +1409,75 @@ new Vue({
 })
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<div id="example-5" class="demo">
+  <input v-model="query">
+  <transition-group
+    name="staggered-fade"
+    tag="ul"
+    v-bind:css="false"
+    v-on:before-enter="beforeEnter"
+    v-on:enter="enter"
+    v-on:leave="leave"
+  >
+    <li
+      v-for="(item, index) in computedList"
+      v-bind:key="item.msg"
+      v-bind:data-index="index"
+    >{{ item.msg }}</li>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#example-5',
+  data: {
+    query: '',
+    list: [
+      { msg: 'Брюс Ли' },
+      { msg: 'Джеки Чан' },
+      { msg: 'Чак Норрис' },
+      { msg: 'Джет Ли' },
+      { msg: 'Кунг Фьюри' }
+    ]
+  },
+  computed: {
+    computedList: function () {
+      var vm = this
+      return this.list.filter(function (item) {
+        return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
+      })
+    }
+  },
+  methods: {
+    beforeEnter: function (el) {
+      el.style.opacity = 0
+      el.style.height = 0
+    },
+    enter: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 1, height: '1.6em' },
+          { complete: done }
+        )
+      }, delay)
+    },
+    leave: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 0, height: 0 },
+          { complete: done }
+        )
+      }, delay)
+    }
+  }
+})
+</script>
+{% endraw %}
 
 ## Повторное использование анимованных переходов
 
@@ -976,6 +1619,74 @@ new Vue({
 })
 ```
 
-Пример на https://ru.vuejs.org/v2/guide/transitions.html
+{% raw %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<div id="dynamic-fade-demo" class="demo">
+  Fade In: <input type="range" v-model="fadeInDuration" min="0" v-bind:max="maxFadeDuration">
+  Fade Out: <input type="range" v-model="fadeOutDuration" min="0" v-bind:max="maxFadeDuration">
+  <transition
+    v-bind:css="false"
+    v-on:before-enter="beforeEnter"
+    v-on:enter="enter"
+    v-on:leave="leave"
+  >
+    <p v-if="show">привет</p>
+  </transition>
+  <button
+    v-if="stop"
+    v-on:click="stop = false; show = false"
+  >Запустить анимацию</button>
+  <button
+    v-else
+    v-on:click="stop = true"
+  >Остановить анимацию</button>
+</div>
+<script>
+new Vue({
+  el: '#dynamic-fade-demo',
+  data: {
+    show: true,
+    fadeInDuration: 1000,
+    fadeOutDuration: 1000,
+    maxFadeDuration: 1500,
+    stop: true
+  },
+  mounted: function () {
+    this.show = false
+  },
+  methods: {
+    beforeEnter: function (el) {
+      el.style.opacity = 0
+    },
+    enter: function (el, done) {
+      var vm = this
+      Velocity(el,
+        { opacity: 1 },
+        {
+          duration: this.fadeInDuration,
+          complete: function () {
+            done()
+            if (!vm.stop) vm.show = false
+          }
+        }
+      )
+    },
+    leave: function (el, done) {
+      var vm = this
+      Velocity(el,
+        { opacity: 0 },
+        {
+          duration: this.fadeOutDuration,
+          complete: function () {
+            done()
+            vm.show = true
+          }
+        }
+      )
+    }
+  }
+})
+</script>
+{% endraw %}
 
 Наконец, ещё больше возможностей для создания динамических переходов появляется, если создать компоненты, принимающие входные параметры, определяющие природу используемых переходов. Звучит избито, но всё равно — здесь всё ограничено только вашим воображением.
