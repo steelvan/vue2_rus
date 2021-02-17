@@ -32,8 +32,46 @@
 				<a href="./uchebnik/index.md#отношение-к-пользовательским-элементам-web-components">Отношение к пользовательским элементам Web Components</a>
 			</td>
 		</tr>
+		<tr>
+			<td style="vertical-align: top;" rowspan="10">
+				<a href="./uchebnik/installation.md">Установка</a>
+			</td>
+			<td>
+				<a href="./uchebnik/installation.md#инструменты-разработчика-и-vue">Инструменты разработчика и Vue</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/installation.md#подключение-через-script">Подключение через script</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/installation.md#инструменты-командной-строки-cli">Инструменты командной строки (CLI)</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/installation.md#объяснение-различных-сборок">Объяснение различных сборок</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/installation.md#среда-исполнения--компилятор-vs-среда-исполнения">Среда исполнения + Компилятор vs. Среда исполнения</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/installation.md#режим-разработки-против-режим-продуктива">Режим разработки против режим продуктива</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="./uchebnik/installation.md#сборка-dev-версии">Сборка dev-версии</a>
+			</td>
+		</tr>
 	</tbody>
-</table>
+</table
 
 
 
