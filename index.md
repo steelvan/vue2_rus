@@ -15,13 +15,13 @@
 <table>
     <tr>
 	<td rowspan="3"><a href="./uchebnik/index.md">что такое vue.js</a></td>
-        <td></td>
+        <td>1</td>
     </tr>
     <tr>
-        <td>213123</td>
+        <td>2</td>
     </tr>
     <tr>
-        <td></td>
+        <td>3</td>
     </tr>
 </table>
 {% endraw %}
